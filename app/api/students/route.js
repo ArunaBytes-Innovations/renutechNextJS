@@ -3,7 +3,8 @@ import connectDB from "@/app/lib/connectDB";
 import Student from "@/app/models/student";
 
 export async function GET() {
-    const students = await Student.find({});
+    await connectDB();
+    const students = await Student.find();
     return NextResponse.json(students);
 }
 

@@ -1,4 +1,3 @@
-// api/students/[id]/route.js
 
 import { NextResponse } from "next/server";
 import connectDB from "@/app/lib/connectDB";
