@@ -1,3 +1,4 @@
+import Sidebar from '@/components/admin/Sidebar';
 import React from 'react';
 
 const AdminLayout = ({ children }) => {
@@ -6,7 +7,7 @@ const AdminLayout = ({ children }) => {
             {/* Sidebar */}
             <aside className="bg-gray-800 text-gray-100 w-full md:w-64 flex-shrink-0">
                 {/* Sidebar content */}
-                Sidebar
+                <Sidebar />
             </aside>
 
             {/* Main content */}
