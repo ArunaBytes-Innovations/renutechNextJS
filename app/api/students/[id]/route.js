@@ -37,6 +37,5 @@ export async function DELETE(req, { params }) {
         return NextResponse.error("Student not found", 404);
     }
     await Student.findByIdAndDelete(id);
-
     return NextResponse.json({ message: "Student deleted" });
 }
