@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 import connectDB from "@/app/lib/connectDB";
-import Student from "@/app/models/student";
+import Student from "@/app/models/Student";
 
 export async function GET() {
     await connectDB();
-    const students = await Student.find();
+    const students = await Student.find().populate("events");
     return NextResponse.json(students);
 }
 
