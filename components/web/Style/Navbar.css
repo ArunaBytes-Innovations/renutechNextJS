@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Megrim&display=swap");
+
+.nav-cont {
+  font-family: "Megrim", system-ui;
+}
+
+#check:checked ~ ul {
+  display: block;
+}

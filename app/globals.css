@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Ultra&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hanalei+Fill&family=Mitr:wght@200;300;400;500;600;700&display=swap");
+
+.home_bg_img {
+  z-index: -1;
+}
+
+.home-container {
+  font-family: "Megrim", system-ui;
+}
