@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server";
 import connectDB from "@/app/lib/connectDB";
 import Student from "@/app/models/Student";
+import Event from "@/app/models/Event";
 
 // getStudentById
 export async function GET(req, { params }) {

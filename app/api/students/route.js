@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import connectDB from "@/app/lib/connectDB";
 import Student from "@/app/models/Student";
+import Event from "@/app/models/Event";
 
 export async function GET() {
     await connectDB();
