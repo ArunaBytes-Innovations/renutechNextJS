@@ -1,9 +1,14 @@
 import React from "react";
+import Navbar from "@/components/web/Navbar";
 
 const Contact = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#219de5] to-[#09172d]">
-      <div className="max-w-md w-full bg-white bg-opacity-25 shadow-md rounded-xl p-8">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#197fbd] from-10% via-[#5abeea] via-30% to-[#cacccf]">
+      <Navbar />
+      <div
+        className="max-w-md w-full bg-white bg-opacity-25 shadow-md rounded-xl p-8"
+        style={{ fontFamily: "Shantell Sans, cursive" }}
+      >
         <h2 className="text-2xl font-bold mb-4 text-center">Contact Us</h2>
         <form>
           <div className="relative">
@@ -16,7 +21,7 @@ const Contact = () => {
             />
             <label
               htmlFor="name"
-              className=" absolute font-semibold  left-0 -top-0.5 text-gray-600 text-sm transition-all duration-300 
+              className=" absolute font-medium  left-0 -top-0.5 text-gray-600 text-sm transition-all duration-300 
                                             peer-placeholder-shown:text-base
                                           peer-placeholder-shown:text-black
                                             peer-placeholder-shown:top-6
@@ -37,7 +42,7 @@ const Contact = () => {
             />
             <label
               htmlFor="college"
-              className=" absolute font-semibold  left-0 -top-0.5 text-gray-600 text-sm transition-all duration-300 
+              className=" absolute font-medium  left-0 -top-0.5 text-gray-600 text-sm transition-all duration-300 
                                             peer-placeholder-shown:text-base
                                           peer-placeholder-shown:text-black
                                             peer-placeholder-shown:top-6
@@ -58,7 +63,7 @@ const Contact = () => {
             />
             <label
               htmlFor="user"
-              className="font-semibold absolute left-0 -top-0.5 text-gray-600 text-sm transition-all duration-300 
+              className="font-medium absolute left-0 -top-0.5 text-gray-600 text-sm transition-all duration-300 
                                             peer-placeholder-shown:text-base
                                           peer-placeholder-shown:text-black
                                             peer-placeholder-shown:top-6
@@ -74,7 +79,7 @@ const Contact = () => {
               htmlFor="message"
               className="block text-black font-bold mb-2"
             >
-              Message
+              Message:
             </label>
             <textarea
               id="message"

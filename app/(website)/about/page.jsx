@@ -94,7 +94,7 @@ const About = () => {
           <div className="flex justify-evenly flex-wrap">
             {DevLists.map((dev, index) => (
               <div
-                style={{ fontFamily: "Goldman, sans-serif" }}
+                style={{ fontFamily: "Shantell Sans, cursive" }}
                 key={index}
                 className="bg-white p-4 m-5 w-64 rounded-xl shadow-md flex flex-col items-center justify-center text-center"
               >
