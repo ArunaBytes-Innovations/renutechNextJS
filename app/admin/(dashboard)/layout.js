@@ -12,14 +12,9 @@ const AdminLayout = ({ children }) => {
 
             {/* Main content */}
             <div className="flex flex-col flex-1">
-                {/* Header */}
-                <header className="bg-white shadow-md">
-                    {/* Header content */}
-                    Header
-                </header>
 
                 {/* Main body */}
-                <main className="flex-1 overflow-y-auto p-4">
+                <main className="flex-1 overflow-y-auto">
                     {/* Main body content (children components) */}
                     {children}
                 </main>
