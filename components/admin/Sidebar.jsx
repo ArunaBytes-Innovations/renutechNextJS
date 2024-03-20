@@ -23,8 +23,8 @@ const Sidebar = () => {
     },
 
     {
-      link: "coordinators",
-      href: "/coordinators",
+      link: "notification",
+      href: "/notification",
     },
 
     {
