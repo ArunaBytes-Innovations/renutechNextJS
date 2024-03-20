@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "@/components/web/Navbar";
 
 const EventLists = [
   {
@@ -60,9 +61,10 @@ const EventCard = (props) => {
 const Events = () => {
   return (
     <div
-      className="event-container bg-black h-full"
+      className="event-container min-h-screen bg-gradient-to-b from-[#197fbd] from-10% via-[#5abeea] via-30% to-[#fcfdff]"
       style={{ fontFamily: "Megrim, system-ui" }}
     >
+      <Navbar />
       <div className="event-cards flex flex-wrap justify-around">
         {EventLists.map((eventlist) => (
           <EventCard
