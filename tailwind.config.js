@@ -15,6 +15,7 @@ module.exports = {
     },
   },
   plugins: [
+    require("daisyui"),
     function ({ addUtilities }) {
       const newUtilities = {
         ".no-scrollbar::-webkit-scrollbar": {
@@ -24,4 +25,7 @@ module.exports = {
       addUtilities(newUtilities);
     },
   ],
+  daisyui: {
+    themes: ["light"],
+  },
 };
