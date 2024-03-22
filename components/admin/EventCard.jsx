@@ -1,12 +1,38 @@
 import React from "react";
 
 const EventCard = (props) => {
+  const handleDelete = async () => {
+    try {
+      const response = await fetch(`/api/events/${props.id}`, {
+        method: "DELETE",
+        headers: {
+          authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWY5YTk5NGU2YjNiOWVkODVkZWVjNGQiLCJpYXQiOjE3MTExMDY3MzgsImV4cCI6MTcxMTcxMTUzOH0.-yRuerS517tiSbWuK1jhiPJ-OF2RSO8eTNj51kGyP5g",
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete event");
+      }
+
+      const data = await response.json();
+      console.log("Event deleted:", data.message);
+      alert("Event deleted successfully");
+      window.location.reload();
+      // Optionally, you can perform additional actions after deleting the event
+    } catch (error) {
+      console.error("Error deleting event:", error.message);
+      alert("Failed to delete event");
+      // Handle error (e.g., show error message to the user)
+    }
+  };
   return (
     <div
-      className="event w-fit h-fit my-20 text-center m-10 drop-shadow-xl"
+      className="event rounded-xl my-20 text-center m-10 drop-shadow-xl"
       style={{
         backgroundImage: "url(/assets/event_list_bg.png)",
-        backgroundSize: "contain",
+        backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
     >
@@ -24,6 +50,7 @@ const EventCard = (props) => {
         <button
           className="mb-6 bg-[#ff1d1d] py-1 px-4 rounded-lg font-bold "
           type="button"
+          onClick={handleDelete}
         >
           Delete
         </button>

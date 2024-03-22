@@ -13,10 +13,6 @@ const eventSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    tagLine: {
-        type: String,
-        required: true,
-    },
     coordinators: {
         type: [
             {

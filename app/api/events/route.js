@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import connectDB from "@/app/lib/connectDB";
 import Event from "@/app/models/Event";
-import Student from "@/app/models/Student";
 import Coordinator from "@/app/models/Coordinator";
 
 import jwt from "jsonwebtoken"
@@ -9,7 +8,7 @@ import { headers } from "next/headers";
 
 export async function GET() {
     await connectDB();
-    const event = await Event.find().populate("events.coordinators").populate("coordinators");
+    const event = await Event.find().populate("coordinators");
     return NextResponse.json(event);
 }
 
