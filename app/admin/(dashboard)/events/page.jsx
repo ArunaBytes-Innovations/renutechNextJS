@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import EventCard from "@/components/admin/EventCard";
 import EventList from "./EventList";
 
 const Events = () => {
@@ -79,6 +78,7 @@ const Events = () => {
         const responseData = await response.json();
         console.log("Event created:", responseData);
         alert("Event created successfully");
+        window.location.reload();
         // Optionally, you can redirect the user or show a success message here
       } catch (error) {
         console.error("Error creating event:", error);
