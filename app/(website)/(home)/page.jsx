@@ -3,104 +3,91 @@ import React from "react";
 
 const Home = () => {
   return (
-    <div className="home-container bg-black w-full max-h-fit overflow-x-hidden">
+    <div className="home-container bg-gradient-to-t from-[#9fd4eb] from-10% via-[#5abeea] via-30% to-[#000000] to-90% w-full min-h-screen">
       {/* hero section  */}
       <Navbar />
-      <div className="-mt-20">
-        <div className="py-24 md:px-10 w-fit text-white mt-20">
-          <img
-            id="animation"
-            src="/assets/renuTech.svg"
-            className=" relative z-10 px-10"
-            alt=""
-          />
-          <p className="text-xl text-center font-bold md:text-left md:text-2xl md:px-10 pt-10 text-amber-100 capitalize ">
-            Bytes & Beats Together <br />
-            Where Tech innovation meets cultural celebration
-          </p>
-          <img
-            src="/assets/moon.png"
-            className="md:absolute top-20 -right-96 md:animate-spin -mt-80 md:-mt-20 z-0"
-            style={{ animation: "spin 40s linear infinite" }}
-            alt=""
-          />
-        </div>
-
-        <img
-          src="/assets/satellite.svg"
-          className=" ml-32 md:animate-ping w-28 -rotate-45"
-          style={{
-            animation: "ping 15s cubic-bezier(0, 0, 0.5, 1) infinite",
-          }}
-          alt=""
-        />
-        <div
-          className="absolute top-0 left-0 w-screen h-screen z-0 md:animate-pulse"
-          style={{
-            animation: "pulse 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-            backgroundImage: "url(/assets/stars.png)",
-            backgroundPosition: "center",
-            height: "100%",
-            width: "100%",
-          }}
-        ></div>
-      </div>
-      {/* Section 2 */}
-      <div
-        className=" w-full h-full mt-48 bg-black"
-        style={{
-          backgroundImage: "url(/assets/wave.png)",
-          backgroundSize: "contain",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <div className="text-yellow-100  text-center pt-16">
-          <h1 className="text-2xl" style={{ fontFamily: "Ultra, serif" }}>
-            &quot;RENUTECH&quot;
-          </h1>
-          <p className="px-40 text-2xl font-bold">
-            spnrec&apos;s inaugural event celebration innovation, collaboration
-            and technology. Join students, faculty and industry professionals
-            for cutting-edge projects, workshops and discussions. It&apos;s the
-            start of a new era of excellence.
-          </p>
-        </div>
-        <div className="mt-72">
-          <img
-            className="absolute left-8"
-            src="/assets/fire_stone.svg"
-            alt=""
-          />
-        </div>
-        <div className="w-full h-full mt-96">
-          <div className="text-white text-2xl font-bold px-40 text-center ">
-            <p className="">
-              &quot;Embark on an unforgettable journey with SPNREC&apos;s
-              inaugural celebration of innovation, collaboration, and
-              technology. Engage alongside students, esteemed faculty, and
-              industry experts for a day brimming with cutting-edge projects,
-              immersive workshops, and enlightening discussions. Witness the
-              dawn of a new era of excellence at SPNREC!&quot;
-            </p>
-            <p
-              className="mt-8 tracking-wide uppercase"
-              style={{ fontFamily: "Mitr, sans-serif" }}
-            >
-              08-10 april 2024 <br />
-              venue:&nbsp;spnrec,araria
-            </p>
-          </div>
-          <div className=" mt-96 flex flex-col items-center">
-            <img src="/assets/tech.png" alt="" />
-            <img className="pt-20" src="/assets/cultural.png" alt="" />
-          </div>
-          <div className="w-full h-full mt-16">
+      <div className="relative -mt-20">
+        <div className="hero md:flex justify-between">
+          <div className="py-24 md:px-10 w-fit text-white mt-20 text-center md:text-left">
             <img
-              className="absolute right-0"
-              src="/assets/aeroplane.svg"
+              id="animation"
+              src="/assets/renuTech.svg"
+              className=" relative z-10 px-10"
               alt=""
             />
-            <img className="pt-96" src="/assets/hot_balloon.svg" alt="" />
+            <p className="relative z-50 text-xl text-center font-bold md:text-center md:text-2xl md:px-10 pt-6 text-amber-100 capitalize ">
+              08-10 October 2021
+            </p>
+            <p className="md:text-xl text-center font-bold md:text-left md:px-10 pt-10 text-amber-100 capitalize ">
+              Bytes & Beats Together <br />
+              Where Tech innovation meets cultural celebration
+            </p>
+            <button className="bg-amber-100 text-sm md:text-lg font-semibold text-black md:ml-10 px-4 py-2 mt-5 rounded-lg">
+              Get Started
+            </button>
+          </div>
+          <img
+            className="absolute top-24 md:top-36 animate-pulse w-screen rotate-180"
+            src="/assets/stars.png"
+            alt="star"
+          />
+          <div className="md:basis-1/4 -mt-40 md:mt-40 overflow-hidden ">
+            <img
+              className="w-54 md:w-full md:h-full h-48 animate-spin"
+              src="/assets/moon_full.png"
+              alt=""
+              style={{ animation: "spin 40s linear infinite" }}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="about bg-inherit py-10 px-10">
+        <h2 className="text-center text-[#fcf1c5] text-2xl font-bold underline underline-offset-8  decoration-wavy">
+          About Fest
+        </h2>
+        <p className="text-center font-semibold text-white mt-5 md:px-40">
+          RenuTech is the ultimate fusion of tech and creativity organized by{" "}
+          <span className="text-lg text-[#fcf1c5]">SPNREC, Araria!</span>{" "}
+          Featuring a diverse range of events from coding competitions to
+          debates and workshops, RenuTech offers something for everyone. Join us
+          as we push the boundaries of innovation and imagination, creating a
+          platform where talents from all disciplines converge to shape the
+          future.
+        </p>
+      </div>
+
+      <div className="events bg-inherit text-white py-10">
+        <h2 className="text-center text-[#fcf1c5] text-2xl font-bold underline underline-offset-8  decoration-wavy">
+          Events
+        </h2>
+        <div className="flex flex-wrap justify-evenly mt-5 px-6 md:px-0">
+          <div className="flex justify-evenly bg-white text-black p-2 rounded-lg">
+            <img
+              src="/assets/design_quest.svg"
+              className="w-20 h-20 pr-2 rounded-full"
+              alt="dev"
+            />
+            <div>
+              <h3 className="text-xl font-bold">Tech Event</h3>
+              <p className="text-gray-500 mt-2 font-semibold">
+                Embark on a Journey of Code, Creation, and Conquest: <br /> Join
+                the Tech Odyssey.
+              </p>
+            </div>
+          </div>
+          <div className="flex justify-evenly bg-white text-black mt-4 md:mt-0 p-2 rounded-lg">
+            <img
+              src="/assets/cultural_img.png"
+              className="w-20 h-20 pr-2 rounded-full"
+              alt="dev"
+            />
+            <div>
+              <h3 className="text-xl font-bold">Cultural Event</h3>
+              <p className="text-gray-500 mt-2 font-semibold">
+                From Tradition to Transformation: Let's Celebrate Culture.
+              </p>
+            </div>
           </div>
         </div>
       </div>
