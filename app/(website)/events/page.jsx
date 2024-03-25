@@ -71,7 +71,7 @@ const Events = () => {
               Coordinators:
             </h3>
             {/* Displaying coordinators */}
-            {props.coordinators.map((coordinator) => (
+            {/* {props.coordinators.map((coordinator) => (
               <div className=" mr-4 float-left">
                 <p>{coordinator.name}</p>
                 <Link
@@ -81,7 +81,7 @@ const Events = () => {
                   {coordinator.number}
                 </Link>
               </div>
-            ))}
+            ))} */}
           </div>
           {/* Button for registration */}
           <button

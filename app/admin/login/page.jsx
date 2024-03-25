@@ -1,21 +1,47 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const AdminLoginPage = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const router = useRouter();
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
-  const handleLogin = (e) => {
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your login logic here, e.g., sending login credentials to the server
-    console.log(
-      "Logging in with username:",
-      username,
-      "and password:",
-      password
-    );
-    setPassword("");
-    setUsername("");
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to login user");
+      }
+
+      const responseData = await response.json();
+      console.log("Logged IN :", responseData);
+      // Store token to local storage
+      localStorage.setItem("token", responseData.token);
+
+      router.push("/admin");
+      // Optionally, you can redirect the user or show a success message here
+    } catch (error) {
+      console.error("Error logging user:", error);
+      alert(error.message);
+      // Handle error (e.g., show error message to the user)
+    }
+
+    setFormData({ email: "", password: "" });
   };
 
   return (
@@ -26,22 +52,22 @@ const AdminLoginPage = () => {
             Admin Login
           </h2>
         </div>
-        <form onSubmit={handleLogin} className="mt-8 space-y-6">
+        <form onSubmit={handleSubmit} className="mt-8 space-y-6">
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
-              <label htmlFor="username" className="sr-only">
-                Username
+              <label htmlFor="email" className="sr-only">
+                email
               </label>
               <input
-                id="username"
-                name="username"
+                id="email"
+                name="email"
                 type="text"
-                autoComplete="username"
+                autoComplete="email"
                 required
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={formData.email}
+                onChange={handleChange}
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Username"
+                placeholder="email"
               />
             </div>
             <div>
@@ -54,8 +80,8 @@ const AdminLoginPage = () => {
                 type="password"
                 autoComplete="current-password"
                 required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={formData.password}
+                onChange={handleChange}
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
               />

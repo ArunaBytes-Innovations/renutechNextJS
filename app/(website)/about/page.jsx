@@ -78,11 +78,11 @@ const About = () => {
             <b>RENUTECH</b> arises &ndash; a fusion of tech and culture, without
             end. Robo racers sprint, circuits ablaze, in a dance of thought,
             Soccer fields transform, robotic feet pirouette, algorithms sought.
-            Huddles hum with ideas, innovation's forge, minds collide and dare,
-            Beyond, a cultural tapestry unfurls, voices raise, bodies in motion
-            share. In the art gallery, dreams and colors entwine, entrepreneurs
-            tread, <b>April 8th to 10th, 2024</b>, etch it in your soul,
-            RENUTECH awaits, where tech and art spread.
+            Huddles hum with ideas, innovation&apos;s forge, minds collide and
+            dare, Beyond, a cultural tapestry unfurls, voices raise, bodies in
+            motion share. In the art gallery, dreams and colors entwine,
+            entrepreneurs tread, <b>April 8th to 10th, 2024</b>, etch it in your
+            soul, RENUTECH awaits, where tech and art spread.
           </p>
           <img src="/assets/design_quest.svg" alt="inage" />
         </div>

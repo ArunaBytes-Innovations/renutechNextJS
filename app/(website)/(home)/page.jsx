@@ -56,13 +56,13 @@ const Home = () => {
       >
         <div className="text-yellow-100  text-center pt-16">
           <h1 className="text-2xl" style={{ fontFamily: "Ultra, serif" }}>
-            "RENUTECH"
+            &quot;RENUTECH&quot;
           </h1>
           <p className="px-40 text-2xl font-bold">
-            spnrec's inaugural event celebration innovation, collaboration and
-            technology. Join students, faculty and industry professionals for
-            cutting-edge projects, workshops and discussions. It's the start of
-            a new era of excellence.
+            spnrec&apos;s inaugural event celebration innovation, collaboration
+            and technology. Join students, faculty and industry professionals
+            for cutting-edge projects, workshops and discussions. It&apos;s the
+            start of a new era of excellence.
           </p>
         </div>
         <div className="mt-72">
@@ -75,12 +75,12 @@ const Home = () => {
         <div className="w-full h-full mt-96">
           <div className="text-white text-2xl font-bold px-40 text-center ">
             <p className="">
-              "Embark on an unforgettable journey with SPNREC's inaugural
-              celebration of innovation, collaboration, and technology. Engage
-              alongside students, esteemed faculty, and industry experts for a
-              day brimming with cutting-edge projects, immersive workshops, and
-              enlightening discussions. Witness the dawn of a new era of
-              excellence at SPNREC!"
+              &quot;Embark on an unforgettable journey with SPNREC&apos;s
+              inaugural celebration of innovation, collaboration, and
+              technology. Engage alongside students, esteemed faculty, and
+              industry experts for a day brimming with cutting-edge projects,
+              immersive workshops, and enlightening discussions. Witness the
+              dawn of a new era of excellence at SPNREC!&quot;
             </p>
             <p
               className="mt-8 tracking-wide uppercase"
