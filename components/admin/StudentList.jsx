@@ -44,8 +44,9 @@ const StudentList = ({ students }) => {
           </tr>
         </thead>
         <tbody>
-          {students.map((student) => (
+          {students.map((student, index) => (
             <tr
+              key={index}
               className={`${
                 student.index % 2 === 0 ? "bg-white" : "bg-gray-100"
               } border-b`}
