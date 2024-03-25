@@ -1,12 +1,20 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import EventList from "./EventList";
-
 const Events = () => {
   const refOne = useRef(null);
   const [showAddEvent, setShowAddEvent] = useState(false);
+  const [token, setToken] = useState("");
+
+  const router = useRouter();
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/admin/login");
+    }
+    setToken(token);
     document.addEventListener("click", handleClickOutside, true);
     return () => {
       document.removeEventListener("click", handleClickOutside, true);
@@ -42,8 +50,7 @@ const Events = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWY5YTk5NGU2YjNiOWVkODVkZWVjNGQiLCJpYXQiOjE3MTExMDY3MzgsImV4cCI6MTcxMTcxMTUzOH0.-yRuerS517tiSbWuK1jhiPJ-OF2RSO8eTNj51kGyP5g",
+            authorization: `Bearer ${token}`,
           },
           body: JSON.stringify(formData),
         });
