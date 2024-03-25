@@ -2,7 +2,6 @@
 import { NextResponse } from "next/server";
 import connectDB from "@/app/lib/connectDB";
 import Student from "@/app/models/Student";
-import Event from "@/app/models/Event";
 
 import jwt from "jsonwebtoken"
 import { headers } from "next/headers";
@@ -30,7 +29,7 @@ export async function GET(req, { params }) {
     }
     await connectDB();
     const id = params.id;
-    const student = await Student.findById(id).populate("events");
+    const student = await Student.findById(id);
     return NextResponse.json(student);
 }
 

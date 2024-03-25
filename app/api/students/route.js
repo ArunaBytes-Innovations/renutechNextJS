@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import connectDB from "@/app/lib/connectDB";
 import Student from "@/app/models/Student";
-import Event from "@/app/models/Event";
 
 import jwt from "jsonwebtoken"
 import { headers } from "next/headers";
@@ -27,7 +26,7 @@ export async function GET() {
         return NextResponse.json({ message: 'Unauthorized: Invalid token' });
     }
     await connectDB();
-    const students = await Student.find().populate("events");
+    const students = await Student.find();
     return NextResponse.json(students);
 }
 
