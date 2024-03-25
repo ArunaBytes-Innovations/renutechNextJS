@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-const dashboard = () => {
+const Dashboard = () => {
   const [token, setToken] = useState("");
 
   const router = useRouter();
@@ -14,7 +14,7 @@ const dashboard = () => {
     }
     setToken(token);
   }, []);
-  return <div>dashboard</div>;
+  return <div>Dashboard</div>;
 };
 
-export default dashboard;
+export default Dashboard;

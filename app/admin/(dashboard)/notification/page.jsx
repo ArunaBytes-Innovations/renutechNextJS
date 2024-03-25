@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-const alert = () => {
+const Notification = () => {
   const [token, setToken] = useState("");
 
   const router = useRouter();
@@ -18,4 +18,4 @@ const alert = () => {
   return <div>alert</div>;
 };
 
-export default alert;
+export default Notification;
