@@ -43,12 +43,12 @@ const Register = () => {
 
   return (
     <div
-      className="flex justify-center items-center h-dvh bg-gradient-to-b from-[#197fbd] from-10% via-[#5abeea] via-30% to-[#ffffff]"
+      className="flex justify-center items-center h-fit bg-gradient-to-b from-[#197fbd] from-10% via-[#5abeea] via-30% to-[#ffffff]"
       style={{
         fontFamily: "Shantell Sans, cursive",
       }}
     >
-      <div className="bg-base-200 bg-opacity-25 rounded-lg p-10 md:w-full lg:w-1/2 shadow-lg">
+      <div className="bg-base-200 bg-opacity-25 rounded-lg p-10 md:w-full lg:w-1/2 mt-20 shadow-lg">
         {/* heading  */}
         <h1 className=" text-4xl py-2 font-semibold bg-gradient-to-br from-purple-600 via-pink-600 to-blue-600 inline-block text-transparent bg-clip-text">
           Event Registration
@@ -133,7 +133,7 @@ const Register = () => {
                 id="name"
                 required
                 placeholder="Enter your name"
-                className=" w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
+                className=" w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500 capitalize"
               />
               {/* Input for Email */}
               <label htmlFor="email">
@@ -175,7 +175,7 @@ const Register = () => {
                 name="college"
                 id="college"
                 required
-                className=" w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
+                className=" w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500 capitalize"
               />
               {/* Input for Registration No */}
               <label htmlFor="registration">
@@ -200,7 +200,7 @@ const Register = () => {
                 name="branch"
                 id="branch"
                 required
-                className=" w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
+                className=" w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500 capitalize"
               />
               {/* Input for student Year */}
               <label htmlFor="year" className="">
@@ -213,7 +213,7 @@ const Register = () => {
                 className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
               >
                 <option disabled selected hidden value="">
-                  current Year
+                  Current Year
                 </option>
                 <option value="first">1st Year</option>
                 <option value="secound">2nd Year</option>
@@ -235,7 +235,7 @@ const Register = () => {
                 id="event_first"
                 name="event_first"
                 required
-                className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
+                className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500 capitalize"
               >
                 <option disabled selected hidden value="">
                   Choose event
@@ -253,11 +253,12 @@ const Register = () => {
               <select
                 id="event_secound"
                 name="event_secound"
-                className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
+                className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500 capitalize"
               >
                 <option disabled selected hidden value="">
                   Choose event
                 </option>
+                <option value="none">None</option>
                 {Events.map((event, index) => (
                   <option className=" capitalize" key={index} value={event}>
                     {event}
@@ -271,11 +272,12 @@ const Register = () => {
               <select
                 id="event_third"
                 name="event_third"
-                className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
+                className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500 capitalize"
               >
                 <option disabled selected hidden value="">
                   Choose event
                 </option>
+                <option value="none">None</option>
                 {Events.map((event, index) => (
                   <option className=" capitalize" key={index} value={event}>
                     {event}
@@ -289,11 +291,12 @@ const Register = () => {
               <select
                 id="event_fourth"
                 name="event_fourth"
-                className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
+                className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500 capitalize"
               >
                 <option disabled selected hidden value="">
                   Choose event
                 </option>
+                <option value="none">None</option>
                 {Events.map((event, index) => (
                   <option className=" capitalize" key={index} value={event}>
                     {event}
@@ -310,7 +313,7 @@ const Register = () => {
                 placeholder="Enter event name"
                 name="additional"
                 id="additional"
-                className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
+                className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500 capitalize"
               />
             </div>
           )}
@@ -318,6 +321,19 @@ const Register = () => {
           {/* page 4  */}
           {page == 4 && (
             <div>
+              <div className="flex flex-col justify-center items-center">
+                <p className="pb-2">Scan the QR code</p>
+                <img
+                  className="w-40 h-auto"
+                  src="/assets/payment_qr.png"
+                  alt="qr"
+                />
+                <span className="text-gray-500">or</span>
+                <p className="pb-4">
+                  Pay to UPI ID:{" "}
+                  <span className="text-red-600">principalspnrec@ucobank</span>
+                </p>
+              </div>
               <div className="cont-1">
                 {/* Input for Payment Date */}
                 <label htmlFor="date">
@@ -332,7 +348,7 @@ const Register = () => {
                 />
                 {/* Input for Transaction ID */}
                 <label htmlFor="transaction">
-                  <span className=" text-red-600">*</span>Transaction ID:{" "}
+                  <span className=" text-red-600">*</span>UPI Transaction ID:{" "}
                 </label>
                 <input
                   type="text"
