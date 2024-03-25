@@ -1,43 +1,31 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "@/components/web/Navbar"; // Importing Navbar component
 import Link from "next/link"; // Importing Link component from Next.js
 
 // Functional component Events
 const Events = () => {
-  // Array containing event list
-  const EventLists = [
-    {
-      image: "/assets/paper_presentation.svg",
-      title: "Paper Presentation",
-      button: "know More",
-    },
-    {
-      image: "/assets/paper_presentation.svg",
-      title: "Paper Presentation",
-      button: "know More",
-    },
-    {
-      image: "/assets/paper_presentation.svg",
-      title: "Paper Presentation",
-      button: "know More",
-    },
-    {
-      image: "/assets/paper_presentation.svg",
-      title: "Paper Presentation",
-      button: "know More",
-    },
-    {
-      image: "/assets/paper_presentation.svg",
-      title: "Paper Presentation",
-      button: "know More",
-    },
-    {
-      image: "/assets/paper_presentation.svg",
-      title: "Paper Presentation",
-      button: "Know More",
-    },
-  ];
+  // fetch events from fetch api
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    // Fetch events when the component mounts
+    fetchEvents();
+  }, []);
+
+  const fetchEvents = async () => {
+    try {
+      const response = await fetch("/api/events");
+      if (!response.ok) {
+        throw new Error("Failed to fetch events");
+      }
+      const data = await response.json();
+      setEvents(data);
+    } catch (error) {
+      console.error("Error fetching events:", error);
+      // Handle error (e.g., show error message to the user)
+    }
+  };
 
   // Array containing detailed event information
   const EventDetails = [
@@ -117,7 +105,7 @@ const Events = () => {
     };
     return (
       <div
-        className="event w-fit h-fit my-20 text-center m-10"
+        className="event  my-20 text-center m-10"
         style={{
           backgroundImage: "url(/assets/event_list_bg.png)",
           backgroundSize: "contain",
@@ -136,7 +124,7 @@ const Events = () => {
           className="mb-6 bg-[#f4d470] hover:bg-[#e4c568] text-sm py-1 px-4 rounded-lg font-bold "
           type="button"
         >
-          {props.button}
+          Register
         </button>
         {/* Popup for detailed event information */}
         {showPopup && (
@@ -185,12 +173,10 @@ const Events = () => {
       {/* Displaying event cards */}
       <div className="event-cards flex flex-wrap justify-around">
         {/* Mapping over event list to render each event card */}
-        {EventLists.map((eventlist) => (
-          <EventCard
-            image={eventlist.image}
-            title={eventlist.title}
-            button={eventlist.button}
-          />
+        {events.map((eventlist, index) => (
+          <div key={index}>
+            <EventCard image={eventlist.image} title={eventlist.name} />
+          </div>
         ))}
       </div>
     </div>

@@ -19,32 +19,6 @@ const Events = () => {
     }
   };
 
-  const EventLists = [
-    {
-      image: "/assets/paper_presentation.svg",
-      title: "Paper Presentation",
-    },
-    {
-      image: "/assets/paper_presentation.svg",
-      title: "Paper Presentation",
-    },
-    {
-      image: "/assets/paper_presentation.svg",
-      title: "Paper Presentation",
-    },
-    {
-      image: "/assets/paper_presentation.svg",
-      title: "Paper Presentation",
-    },
-    {
-      image: "/assets/paper_presentation.svg",
-      title: "Paper Presentation",
-    },
-    {
-      image: "/assets/paper_presentation.svg",
-      title: "Paper Presentation",
-    },
-  ];
   const AddEvents = () => {
     const [formData, setFormData] = useState({
       name: "",
