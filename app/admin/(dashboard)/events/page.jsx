@@ -19,39 +19,16 @@ const Events = () => {
     }
   };
 
-  const EventLists = [
-    {
-      image: "/assets/paper_presentation.svg",
-      title: "Paper Presentation",
-    },
-    {
-      image: "/assets/paper_presentation.svg",
-      title: "Paper Presentation",
-    },
-    {
-      image: "/assets/paper_presentation.svg",
-      title: "Paper Presentation",
-    },
-    {
-      image: "/assets/paper_presentation.svg",
-      title: "Paper Presentation",
-    },
-    {
-      image: "/assets/paper_presentation.svg",
-      title: "Paper Presentation",
-    },
-    {
-      image: "/assets/paper_presentation.svg",
-      title: "Paper Presentation",
-    },
-  ];
   const AddEvents = () => {
     const [formData, setFormData] = useState({
       name: "",
       description: "",
       imageUrl: "",
       tagLine: "",
-      coordinators: [],
+      coordinatorName1: "",
+      coordinatorMobile1: "",
+      coordinatorName2: "",
+      coordinatorMobile2: "",
     });
 
     const handleChange = (e) => {
@@ -97,7 +74,7 @@ const Events = () => {
         >
           <form
             onSubmit={handleSubmit}
-            className=" mt-4 p-4 bg-gray-100 rounded-lg shadow-md"
+            className=" mt-4 p-4 bg-gray-100 rounded-lg shadow-md overflow-scroll"
           >
             <div className="mb-4">
               <label
@@ -154,6 +131,80 @@ const Events = () => {
               />
             </div>
             {/* Add input fields for coordinators */}
+            <h2>Coordinators</h2>
+            <div className="mb-4">
+              <label
+                htmlFor="coordinatorName1"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Coordinator Name
+              </label>
+              <input
+                type="text"
+                id="coordinatorName1"
+                name="coordinatorName1"
+                className="mt-1 p-2 block w-full border rounded-md"
+                placeholder="Coordinator Name"
+                value={formData.coordinatorName1}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="coordinatorMobile1"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Coordinator Mobile
+              </label>
+              <input
+                type="text"
+                id="coordinatorMobile1"
+                name="coordinatorMobile1"
+                className="mt-1 p-2 block w-full border rounded-md"
+                placeholder="Coordinator Mobile"
+                value={formData.coordinatorMobile1}
+                onChange={handleChange}
+              />
+            </div>
+
+            {/* coordinator2 */}
+
+            <div className="mb-4">
+              <label
+                htmlFor="coordinatorName2"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Coordinator Name
+              </label>
+              <input
+                type="text"
+                id="coordinatorName2"
+                name="coordinatorName2"
+                className="mt-1 p-2 block w-full border rounded-md"
+                placeholder="Coordinator Name"
+                value={formData.coordinatorName2}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="coordinatorMobile2"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Coordinator Mobile
+              </label>
+              <input
+                type="text"
+                id="coordinatorMobile2"
+                name="coordinatorMobile2"
+                className="mt-1 p-2 block w-full border rounded-md"
+                placeholder="Coordinator Mobile"
+                value={formData.coordinatorMobile2}
+                onChange={handleChange}
+              />
+            </div>
+
             <button
               type="submit"
               className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"

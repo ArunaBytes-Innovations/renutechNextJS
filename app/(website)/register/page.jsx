@@ -372,7 +372,6 @@ const Register = () => {
               </div>
             </div>
           )}
-          {page}
         </form>
         <div className="flex justify-between pt-10">
           {page > 1 && (

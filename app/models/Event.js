@@ -13,15 +13,24 @@ const eventSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    coordinators: {
-        type: [
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Coordinator',
-            },
-        ],
+    coordinatorName1: {
+        type: String,
+        required: true,
     },
-});
+    coordinatorMobile1: {
+        type: String,
+
+    },
+    coordinatorName2: {
+        type: String,
+        required: true,
+    },
+    coordinatorMobile2: {
+        type: String,
+    },
+}
+
+);
 
 const Event = mongoose.models.Event || mongoose.model('Event', eventSchema);
 
