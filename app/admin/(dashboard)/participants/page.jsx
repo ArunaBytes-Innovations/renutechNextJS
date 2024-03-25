@@ -1,13 +1,22 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import StudentList from "@/components/admin/StudentList";
+import { useRouter } from "next/navigation";
 
 const InstStudents = () => {
   const refOne = useRef(null);
+  const [token, setToken] = useState("");
+
+  const router = useRouter();
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/admin/login");
+    }
+    setToken(token);
     document.addEventListener("click", handleClickOutside, true);
-  });
+  }, []);
 
   const handleClickOutside = (event) => {
     if (refOne.current && !refOne.current.contains(event.target)) {

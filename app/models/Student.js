@@ -30,12 +30,7 @@ const studentSchema = new mongoose.Schema({
 
     },
     events: {
-        type: [
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Event',
-            },
-        ],
+        type: Array,
     },
 });
 const Student = mongoose.models.Student || mongoose.model('Student', studentSchema);

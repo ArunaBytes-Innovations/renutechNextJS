@@ -26,12 +26,12 @@ const Sidebar = () => {
       link: "notification",
       href: "/notification",
     },
-
-    {
-      link: "signout",
-      href: "/signout",
-    },
   ];
+
+  const handleSingout = () => {
+    localStorage.removeItem("token");
+    window.location.reload();
+  };
   return (
     <div>
       <div className="text-white p-4">
@@ -51,8 +51,16 @@ const Sidebar = () => {
               <Link href={`/admin/${sideLink.href}`}>{sideLink.link}</Link>
             </li>
           ))}
+          <li>
+            <button
+              onClick={handleSingout}
+              className="btn btn-ghost text-lg outline mt-52"
+            >
+              Signout
+            </button>
+          </li>
         </ul>
-        <p className="text-center font-light">&copy; ArunaBytes 2024</p>
+        <p className="text-center font-light mt-2">&copy; ArunaBytes 2024</p>
       </nav>
     </div>
   );

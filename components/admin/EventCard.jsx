@@ -1,13 +1,14 @@
 import React, { useState, useRef } from "react";
 
 const EventCard = (props) => {
+  const token = localStorage.getItem("token");
+  console.log(token);
   const handleDelete = async () => {
     try {
       const response = await fetch(`/api/events/${props.id}`, {
         method: "DELETE",
         headers: {
-          authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWY5YTk5NGU2YjNiOWVkODVkZWVjNGQiLCJpYXQiOjE3MTExMDY3MzgsImV4cCI6MTcxMTcxMTUzOH0.-yRuerS517tiSbWuK1jhiPJ-OF2RSO8eTNj51kGyP5g",
+          authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       });
@@ -57,8 +58,7 @@ const EventCard = (props) => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWY5YTk5NGU2YjNiOWVkODVkZWVjNGQiLCJpYXQiOjE3MTExMDY3MzgsImV4cCI6MTcxMTcxMTUzOH0.-yRuerS517tiSbWuK1jhiPJ-OF2RSO8eTNj51kGyP5g",
+          authorization: `Bearer ${token}`,
         },
       });
 
