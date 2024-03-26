@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const studentSchema = new mongoose.Schema({
-    fullName: {
+    name: {
         type: String,
 
     },
-    mobileNo: {
+    contact: {
         type: Number,
 
     },
@@ -17,12 +17,17 @@ const studentSchema = new mongoose.Schema({
         type: String,
 
     },
+
+    registrationNo: {
+        type: Number,
+    },
+
     branch: {
         type: String,
 
     },
-    batch: {
-        type: Date,
+    year: {
+        type: String,
 
     },
     paymentStatus: {

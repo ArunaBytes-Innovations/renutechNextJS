@@ -175,7 +175,7 @@ const Events = () => {
         {/* Mapping over event list to render each event card */}
         {events.map((eventlist, index) => (
           <div key={index}>
-            <EventCard image={eventlist.image} title={eventlist.name} />
+            <EventCard image={eventlist.imageUrl} title={eventlist.name} />
           </div>
         ))}
       </div>

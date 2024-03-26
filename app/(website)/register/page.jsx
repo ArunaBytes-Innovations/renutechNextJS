@@ -4,6 +4,21 @@ import React, { useState } from "react";
 
 const Register = () => {
   const [page, setPage] = useState(1);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [contact, setContact] = useState("");
+  const [college, setCollege] = useState("");
+  const [registrationNo, setRegistrationNo] = useState("");
+  const [branch, setBranch] = useState("");
+  const [year, setYear] = useState("");
+  const [event1, setEvent1] = useState("");
+  const [event2, setEvent2] = useState("");
+  const [event3, setEvent3] = useState("");
+  const [event4, setEvent4] = useState("");
+  const [additionalEvent, setAdditionalEvent] = useState("");
+  const [paymentDate, setPaymentDate] = useState("");
+  const [transactionId, setTransactionId] = useState("");
+  const [paymentProof, setPaymentProof] = useState(null);
 
   // List of events
   const Events = [
@@ -40,6 +55,55 @@ const Register = () => {
     "The Model Marvels",
     "comedy Z remedy",
   ];
+
+  // Function to handle form submission
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    // Construct form data object
+    const formData = {
+      name,
+      email,
+      contact,
+      college,
+      registrationNo,
+      branch,
+      year,
+      event1,
+      event2,
+      event3,
+      event4,
+      additionalEvent,
+      paymentDate,
+      transactionId,
+      paymentProof,
+    };
+
+    console.log(formData);
+
+    // try {
+    //   // Make POST request to your server endpoint
+    //   const response = await fetch("YOUR_SERVER_ENDPOINT_URL", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(formData), // Convert form data object to JSON string
+    //   });
+
+    //   if (response.ok) {
+    //     // Handle successful response
+    //     console.log("Form data submitted successfully!");
+    //     // Optionally, reset form fields or show a success message
+    //   } else {
+    //     // Handle error response
+    //     console.error("Failed to submit form data");
+    //   }
+    // } catch (error) {
+    //   // Handle fetch error
+    //   console.error("Error occurred while submitting form data:", error);
+    // }
+  };
 
   return (
     <div
@@ -119,7 +183,7 @@ const Register = () => {
         </div>
 
         {/* form  */}
-        <form className="flex flex-col">
+        <form className="flex flex-col" onSubmit={handleSubmit}>
           {/* page 1  */}
           {page == 1 && (
             <div className="flex flex-col">
@@ -132,6 +196,8 @@ const Register = () => {
                 name="name"
                 id="name"
                 required
+                onChange={(e) => setName(e.target.value)}
+                value={name}
                 placeholder="Enter your name"
                 className=" w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
               />
@@ -144,6 +210,8 @@ const Register = () => {
                 placeholder="jondue@gmail.com"
                 name="email"
                 id="email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
                 required
                 className=" w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
               />
@@ -155,6 +223,8 @@ const Register = () => {
                 type="number"
                 placeholder="91xxxxxxxx"
                 name="contact"
+                onChange={(e) => setContact(e.target.value)}
+                value={contact}
                 id="contact"
                 required
                 className=" w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
@@ -174,18 +244,22 @@ const Register = () => {
                 placeholder="Enter your Institute name"
                 name="college"
                 id="college"
+                onChange={(e) => setCollege(e.target.value)}
+                value={college}
                 required
                 className=" w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
               />
               {/* Input for Registration No */}
-              <label htmlFor="registration">
+              <label htmlFor="registrationNo">
                 <span className=" text-red-600">*</span>Registration No:{" "}
               </label>
               <input
                 type="number"
                 placeholder="2x1xxxxxxxx"
-                name="college-reg"
-                id="registration"
+                name="registrationNo"
+                id="registrationNo"
+                value={registrationNo}
+                onChange={(e) => setRegistrationNo(e.target.value)}
                 required
                 className=" w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
               />
@@ -199,6 +273,8 @@ const Register = () => {
                 placeholder="xxxxxx Engineering"
                 name="branch"
                 id="branch"
+                value={branch}
+                onChange={(e) => setBranch(e.target.value)}
                 required
                 className=" w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
               />
@@ -209,6 +285,8 @@ const Register = () => {
               <select
                 id="year"
                 name="year"
+                onChange={(e) => setYear(e.target.name)}
+                value={year}
                 required
                 className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
               >
@@ -235,6 +313,8 @@ const Register = () => {
                 id="event_first"
                 name="event_first"
                 required
+                value={event1}
+                onChange={(e) => setEvent1(e.target.value)}
                 className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
               >
                 <option disabled selected hidden value="">
@@ -254,6 +334,8 @@ const Register = () => {
                 id="event_secound"
                 name="event_secound"
                 className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
+                value={event2}
+                onChange={(e) => setEvent2(e.target.value)}
               >
                 <option disabled selected hidden value="">
                   Choose event
@@ -272,6 +354,8 @@ const Register = () => {
                 id="event_third"
                 name="event_third"
                 className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
+                value={event3}
+                onChange={(e) => setEvent3(e.target.value)}
               >
                 <option disabled selected hidden value="">
                   Choose event
@@ -290,6 +374,8 @@ const Register = () => {
                 id="event_fourth"
                 name="event_fourth"
                 className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
+                value={event4}
+                onChange={(e) => setEvent4(e.target.value)}
               >
                 <option disabled selected hidden value="">
                   Choose event
@@ -310,6 +396,8 @@ const Register = () => {
                 placeholder="Enter event name"
                 name="additional"
                 id="additional"
+                value={additionalEvent}
+                onChange={(e) => setAdditionalEvent(e.target.value)}
                 className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
               />
             </div>
@@ -328,6 +416,8 @@ const Register = () => {
                   name="date"
                   id="date"
                   required
+                  value={paymentDate}
+                  onChange={(e) => setPaymentDate(e.target.value)}
                   className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
                 />
                 {/* Input for Transaction ID */}
@@ -340,6 +430,8 @@ const Register = () => {
                   id="transaction"
                   required
                   placeholder="Enter your transaction ID"
+                  value={transactionId}
+                  onChange={(e) => setTransactionId(e.target.value)}
                   className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
                 />
                 {/* Input for Payment Proof */}
@@ -351,35 +443,43 @@ const Register = () => {
                   name="proof"
                   id="proof"
                   required
+                  value={paymentProof}
+                  onChange={(e) => e.target.value}
                   className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
                 />
               </div>
             </div>
           )}
+
+          <div className="flex justify-between pt-10">
+            {page > 1 && (
+              <button
+                onClick={() => setPage(page - 1)}
+                type="button"
+                className="btn btn-outline outline-none border-none bg-[#ff7f7f] text-white hover:bg-[#df6e6e]"
+              >
+                Back
+              </button>
+            )}
+            {page < 4 && (
+              <button
+                onClick={() => setPage(page + 1)}
+                type="button"
+                className="btn btn-success hover:bg-[#18aac6] bg-[#0ab4d5e0] border-none text-white"
+              >
+                Next
+              </button>
+            )}
+            {page == 4 && (
+              <button
+                type="submit"
+                className="btn btn-success font-semibold tracking-wide text-white"
+              >
+                Submit
+              </button>
+            )}
+          </div>
         </form>
-        <div className="flex justify-between pt-10">
-          {page > 1 && (
-            <button
-              onClick={() => setPage(page - 1)}
-              className="btn btn-outline outline-none border-none bg-[#ff7f7f] text-white hover:bg-[#df6e6e]"
-            >
-              Back
-            </button>
-          )}
-          {page < 4 && (
-            <button
-              onClick={() => setPage(page + 1)}
-              className="btn btn-success hover:bg-[#18aac6] bg-[#0ab4d5e0] border-none text-white"
-            >
-              Next
-            </button>
-          )}
-          {page == 4 && (
-            <button className="btn btn-success font-semibold tracking-wide text-white">
-              Submit
-            </button>
-          )}
-        </div>
       </div>
     </div>
   );

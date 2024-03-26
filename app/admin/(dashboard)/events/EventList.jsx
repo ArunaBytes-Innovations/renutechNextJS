@@ -30,7 +30,7 @@ const EventList = () => {
       {events.map((eventlist, index) => (
         <div key={index}>
           <EventCard
-            image={eventlist.image}
+            image={eventlist.imageUrl}
             title={eventlist.name}
             id={eventlist._id}
           />
