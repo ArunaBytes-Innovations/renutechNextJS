@@ -198,7 +198,8 @@ function StudentForm({ params }) {
           <div className="flex w-96">
             <img
               className="w-full h-full object-cover rounded-md"
-              src={`/payments/${student._id}.jpg`}
+              // src={`../tmp/payments/${student._id}.jpg`}
+              src={`../../../../../tmp/payments/${student._id}.jpg`}
               alt=""
             />
           </div>
