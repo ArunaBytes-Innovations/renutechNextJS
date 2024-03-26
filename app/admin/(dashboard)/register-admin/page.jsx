@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-const adminRegisterPage = () => {
+const AdminRegsiterPage = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({
     email: "",
@@ -124,4 +124,4 @@ const adminRegisterPage = () => {
   );
 };
 
-export default adminRegisterPage;
+export default AdminRegsiterPage;
