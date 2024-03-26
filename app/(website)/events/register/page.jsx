@@ -1,8 +1,10 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const Register = () => {
+  const router = useRouter();
   const [page, setPage] = useState(1);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -95,6 +97,8 @@ const Register = () => {
       if (response.ok) {
         // Handle successful response
         console.log("Form data submitted successfully!");
+        alert("Registerd successfully!");
+        router.push("/");
         // Optionally, reset form fields or show a success message
       } else {
         // Handle error response
