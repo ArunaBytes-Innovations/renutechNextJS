@@ -1,6 +1,7 @@
 import Navbar from "@/components/web/Navbar";
 import Footer from "@/components/web/Footer";
 import React from "react";
+import Link from "next/link";
 
 const Home = () => {
   return (
@@ -22,9 +23,11 @@ const Home = () => {
               Bytes &amp; Beats Together <br />
               Where Tech innovation meets cultural celebration
             </p>
-            <button className="bg-amber-100 text-sm md:text-lg font-semibold text-black md:ml-10 px-4 py-2 mt-5 rounded-lg">
-              Get Started
-            </button>
+            <Link href="/events">
+              <button className="bg-amber-100 text-sm md:text-lg font-semibold text-black md:ml-10 px-4 py-2 mt-5 rounded-lg cursor-pointer relative z-40">
+                Get Started
+              </button>
+            </Link>
           </div>
           <img
             className="absolute top-24 md:top-36 animate-pulse w-screen rotate-180"
@@ -57,38 +60,43 @@ const Home = () => {
         </p>
       </div>
 
-      <div className="events bg-inherit text-white py-10 overflow-hidden">
+      <div className="events bg-inherit text-white py-10 overflow-hidden cursor-default">
         <h2 className="text-center text-[#fcf1c5] text-2xl font-bold underline underline-offset-8  decoration-wavy">
           Events
         </h2>
-        <div className="flex flex-wrap justify-evenly mt-5 px-6 md:px-0">
-          <div className="flex justify-evenly bg-white text-black p-2 rounded-lg drop-shadow-xl">
-            <img
-              src="/assets/design_quest.svg"
-              className="w-20 h-20 pr-2 rounded-full"
-              alt="dev"
-            />
-            <div>
-              <h3 className="text-xl font-bold">Tech Event</h3>
-              <p className="text-gray-500 mt-2 font-semibold">
-                Embark on a Journey of Code, Creation, and Conquest: <br /> Join
-                the Tech Odyssey.
-              </p>
+        <div className="flex flex-wrap justify-evenly mt-5 md:mt-12 px-6 md:px-0">
+          <Link href="/events">
+            <div className="flex justify-evenly bg-white text-black p-2 rounded-lg drop-shadow-xl">
+              <img
+                src="/assets/design_quest.svg"
+                className="w-20 h-20 pr-2 rounded-full"
+                alt="dev"
+              />
+              <div>
+                <h3 className="text-xl font-bold">Tech Event</h3>
+                <p className="text-gray-500 mt-2 font-semibold">
+                  Embark on a Journey of Code, Creation, and Conquest: <br />{" "}
+                  Join the Tech Odyssey.
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="flex justify-evenly bg-white text-black mt-4 md:mt-0 p-2 rounded-lg drop-shadow-xl ">
-            <img
-              src="/assets/cultural_img.png"
-              className="w-20 h-20 pr-2 rounded-full"
-              alt="dev"
-            />
-            <div>
-              <h3 className="text-xl font-bold">Cultural Event</h3>
-              <p className="text-gray-500 mt-2 font-semibold">
-                From Tradition to Transformation: Let&apos;s Celebrate Culture.
-              </p>
+          </Link>
+          <Link href="/events">
+            <div className="flex justify-evenly bg-white text-black mt-4 md:mt-0 p-2 rounded-lg drop-shadow-xl ">
+              <img
+                src="/assets/cultural_img.png"
+                className="w-20 h-20 pr-2 rounded-full"
+                alt="dev"
+              />
+              <div>
+                <h3 className="text-xl font-bold">Cultural Event</h3>
+                <p className="text-gray-500 mt-2 font-semibold">
+                  From Tradition to Transformation: Let&apos;s Celebrate
+                  Culture.
+                </p>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
 

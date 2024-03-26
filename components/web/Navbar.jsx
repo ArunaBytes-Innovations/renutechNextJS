@@ -61,7 +61,9 @@ const Navbar = () => {
         zIndex: 1000,
       }}
     >
-      <img className="w-16" src={"/assets/renutech_logo.svg"} alt="logo" />
+      <Link href="/">
+        <img className="w-16" src={"/assets/renutech_logo.svg"} alt="logo" />
+      </Link>
       <div className="hidden md:block">
         <NavLinkGroup />
       </div>
