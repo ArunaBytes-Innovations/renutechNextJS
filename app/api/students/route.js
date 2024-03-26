@@ -54,7 +54,7 @@ export async function POST(req) {
     if (paymentProof) {
         const byteData = await paymentProof.arrayBuffer();
         const buffer = Buffer.from(byteData);
-        const path = `./public/payments/${student._id.toString()}.jpg`;
+        const path = `./tmp/payments/${student._id.toString()}.jpg`;
         await writeFile(path, buffer);
     }
     await student.save();
