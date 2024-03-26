@@ -60,49 +60,50 @@ const Register = () => {
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default form submission behavior
 
-    // Construct form data object
-    const formData = {
-      name,
-      email,
-      contact,
-      college,
-      registrationNo,
-      branch,
-      year,
-      event1,
-      event2,
-      event3,
-      event4,
-      additionalEvent,
-      paymentDate,
-      transactionId,
-      paymentProof,
-    };
+    let events = [event1, event2, event3, event4].filter((event) => event); // Filter out empty event values
+
+    // Add additional event to events array if it is not empty
+    if (additionalEvent) {
+      const additionalEventArray = additionalEvent
+        .split(",")
+        .map((event) => event.trim());
+      events = [...events, ...additionalEventArray];
+    }
+
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("contact", contact);
+    formData.append("email", email);
+    formData.append("college", college);
+    formData.append("registrationNo", registrationNo);
+    formData.append("branch", branch);
+    formData.append("year", year);
+    formData.append("events", JSON.stringify(events));
+    formData.append("paymentDate", paymentDate);
+    formData.append("transactionId", transactionId);
+    formData.append("paymentProof", paymentProof);
 
     console.log(formData);
 
-    // try {
-    //   // Make POST request to your server endpoint
-    //   const response = await fetch("YOUR_SERVER_ENDPOINT_URL", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(formData), // Convert form data object to JSON string
-    //   });
+    try {
+      // Make POST request to your server endpoint
+      const response = await fetch("/api/students", {
+        method: "POST",
+        body: formData, // Send form data object
+      });
 
-    //   if (response.ok) {
-    //     // Handle successful response
-    //     console.log("Form data submitted successfully!");
-    //     // Optionally, reset form fields or show a success message
-    //   } else {
-    //     // Handle error response
-    //     console.error("Failed to submit form data");
-    //   }
-    // } catch (error) {
-    //   // Handle fetch error
-    //   console.error("Error occurred while submitting form data:", error);
-    // }
+      if (response.ok) {
+        // Handle successful response
+        console.log("Form data submitted successfully!");
+        // Optionally, reset form fields or show a success message
+      } else {
+        // Handle error response
+        console.error("Failed to submit form data");
+      }
+    } catch (error) {
+      // Handle fetch error
+      console.error("Error occurred while submitting form data:", error);
+    }
   };
 
   return (
@@ -443,8 +444,9 @@ const Register = () => {
                   name="proof"
                   id="proof"
                   required
-                  value={paymentProof}
-                  onChange={(e) => e.target.value}
+                  onChange={(e) =>
+                    e.target.files?.[0] && setPaymentProof(e.target.files[0])
+                  }
                   className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
                 />
               </div>

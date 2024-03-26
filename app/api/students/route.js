@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import connectDB from "@/app/lib/connectDB";
 import Student from "@/app/models/Student";
 
+import { writeFile } from "fs/promises";
+
 import jwt from "jsonwebtoken"
 import { headers } from "next/headers";
 
@@ -32,8 +34,29 @@ export async function GET() {
 
 export async function POST(req) {
     await connectDB();
-    const newStudent = await req.json();
+    const data = await req.formData();
+    const paymentProof = data.get('paymentProof');
+    const newStudent = {
+        name: data.get('name'),
+        contact: data.get('contact'),
+        email: data.get('email'),
+        college: data.get('college'),
+        registrationNo: data.get('registrationNo'),
+        branch: data.get('branch'),
+        year: data.get('year'),
+        paymentStatus: data.get('paymentStatus'),
+        paymentDate: data.get('paymentDate'),
+        transactionId: data.get('transactionId'),
+        events: data.get('events'),
+    };
     const student = new Student(newStudent);
+
+    if (paymentProof) {
+        const byteData = await paymentProof.arrayBuffer();
+        const buffer = Buffer.from(byteData);
+        const path = `./public/payments/${student._id.toString()}.jpg`;
+        await writeFile(path, buffer);
+    }
     await student.save();
     return NextResponse.json(student);
 }

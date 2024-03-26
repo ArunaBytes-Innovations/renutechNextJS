@@ -11,7 +11,7 @@ const studentSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        unique: true,
+
     },
     college: {
         type: String,
@@ -32,6 +32,15 @@ const studentSchema = new mongoose.Schema({
     },
     paymentStatus: {
         type: Boolean,
+        default: false,
+
+    },
+    paymentDate: {
+        type: Date,
+    },
+
+    transactionId: {
+        type: String,
 
     },
     events: {
