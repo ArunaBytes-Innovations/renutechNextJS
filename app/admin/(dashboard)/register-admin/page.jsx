@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-const AdminLoginPage = () => {
+const adminRegisterPage = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({
     email: "",
@@ -16,6 +16,8 @@ const AdminLoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    console.log("Form Data:", formData);
     try {
       const response = await fetch("/api/auth/register", {
         method: "POST",
@@ -26,23 +28,23 @@ const AdminLoginPage = () => {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to login user");
+        throw new Error("Failed to register user");
       }
 
       const responseData = await response.json();
-      console.log("Logged IN :", responseData);
+      console.log("User created sucessfully :", responseData);
       // Store token to local storage
       localStorage.setItem("token", responseData.token);
 
       router.push("/admin");
       // Optionally, you can redirect the user or show a success message here
     } catch (error) {
-      console.error("Error logging user:", error);
+      console.error("Error registering user:", error);
       alert(error.message);
       // Handle error (e.g., show error message to the user)
     }
 
-    setFormData({ email: "", password: "" });
+    setFormData({ email: "", password: "", name: "" });
   };
 
   return (
@@ -122,4 +124,4 @@ const AdminLoginPage = () => {
   );
 };
 
-export default AdminLoginPage;
+export default adminRegisterPage;
