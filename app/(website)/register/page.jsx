@@ -407,6 +407,19 @@ const Register = () => {
           {/* page 4  */}
           {page == 4 && (
             <div>
+              <div className="flex flex-col justify-center items-center">
+                <p className="pb-2">Scan the QR code</p>
+                <img
+                  className="w-40 h-auto"
+                  src="/assets/payment_qr.png"
+                  alt="qr"
+                />
+                <span className="text-gray-500">or</span>
+                <p className="pb-4">
+                  Pay to UPI ID:{" "}
+                  <span className="text-red-600">principalspnrec@ucobank</span>
+                </p>
+              </div>
               <div className="cont-1">
                 {/* Input for Payment Date */}
                 <label htmlFor="date">
