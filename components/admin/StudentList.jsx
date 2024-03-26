@@ -2,6 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import { IoCallOutline } from "react-icons/io5";
+import { GoPencil } from "react-icons/go";
+import { MdDeleteOutline } from "react-icons/md";
+
+import Link from "next/link";
 
 const StudentList = () => {
   const [students, setStudents] = useState([]); // Initialize students as an empty array
@@ -35,6 +39,28 @@ const StudentList = () => {
     fetchStudents();
   }, []);
 
+  const handleDeleteStudent = (id) => async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await fetch(`/api/students/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete student");
+      }
+
+      const updatedStudents = students.filter((student) => student._id !== id);
+      setStudents(updatedStudents);
+    } catch (error) {
+      console.error("Error deleting student:", error);
+      alert(error.message);
+    }
+  };
+
   return (
     <div className="relative overflow-x-auto m-12 shadow-md sm:rounded-lg">
       <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
@@ -58,6 +84,7 @@ const StudentList = () => {
             <th scope="col" className="px-6 py-3">
               conatact
             </th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -75,16 +102,30 @@ const StudentList = () => {
                 {student.name}
               </th>
               <td className="px-6 py-4">{student.college}</td>
-              <td className="px-6 py-4">
-                {`${student.branch}/${student.registrationNo}`}
-              </td>
+              <td className="px-6 py-4">{student.registrationNo}</td>
               <td className="px-6 py-4">{`${student.branch} / ${student.year}`}</td>
               <td className="px-6 py-4">
-                {student.paymentStatus ? "true" : "false"}
+                {student.paymentStatus ? "Approved" : "Pending"}
               </td>
               <td className="px-6 py-4 flex items-center">
                 <IoCallOutline className="text-xl mr-2" />
                 {student.contact}
+              </td>
+              <td className="px-6 py-4">
+                <div className="flex">
+                  <Link
+                    href={`/admin/participants/${student._id}`}
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 m-1 rounded-xl"
+                  >
+                    <GoPencil size={25} />
+                  </Link>
+                  <button
+                    onClick={handleDeleteStudent(student._id)}
+                    className="bg-red-500 hover:bg-blue-700 text-white font-bold py-1 px-2 m-1 rounded-xl"
+                  >
+                    <MdDeleteOutline size={25} />
+                  </button>
+                </div>
               </td>
             </tr>
           ))}
