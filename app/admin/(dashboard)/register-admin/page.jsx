@@ -1,9 +1,17 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 const AdminRegsiterPage = () => {
   const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/admin/login");
+    }
+  }, []);
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
