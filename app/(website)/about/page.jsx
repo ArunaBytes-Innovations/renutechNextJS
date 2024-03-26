@@ -1,4 +1,5 @@
 import Navbar from "@/components/web/Navbar";
+import Footer from "@/components/web/Footer";
 import React from "react";
 
 import Link from "next/link";
@@ -12,6 +13,12 @@ const DevLists = [
     name: "Priyanshu Anand",
     number: "8603295964",
     email: "pa28may@gmail.com",
+    insta:
+      "https://www.instagram.com/priyanshu_anand_01_?igsh=MXE4czYybng0cnBxdA==",
+    twitter: "https://x.com/PANAND_007?t=T_DTRmeMwN60KzEDp3GERA&s=09",
+    linkedin:
+      "https://www.linkedin.com/in/priyanshu-anand-18532328a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    github: " https://github.com/PAnand007",
   },
   {
     image: "/assets/divya.png",
@@ -19,6 +26,12 @@ const DevLists = [
     name: "Divya Prakash",
     number: "8252745796",
     email: "divyaprakashsunny03@gmail.com",
+    insta:
+      "https://www.instagram.com/galaxy_of_paintings?igsh=eGR5d3B6NzJsdXc=",
+    twitter: "#",
+    linkedin:
+      "https://www.linkedin.com/in/divya-prakash-2435a9227?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    github: "#",
   },
   {
     image: "/assets/aarju_img.png",
@@ -26,6 +39,10 @@ const DevLists = [
     name: "Md Aarju Khan",
     number: "8051648516",
     email: "aarjukhan37999@gmail.com",
+    insta: "https://www.instagram.com/aarju_0004/",
+    twitter: "#",
+    linkedin: "https://www.linkedin.com/in/md-aarju-khan-23a253265/",
+    github: "https://github.com/Aarju004",
   },
   {
     image: "/assets/bharat.png",
@@ -33,70 +50,101 @@ const DevLists = [
     name: "Bharat Ranjan",
     number: "9162601061",
     email: "ranjanbharat54@gmail.com",
+    insta: "https://www.instagram.com/bhaarat.ranjan/",
+    twitter: "https://twitter.com/codewithbharat",
+    linkedin: "https://www.linkedin.com/in/codewithbharat/",
+    github: "https://github.com/codewithbharat",
   },
 ];
 
-const SocialLinks = () => {
+const SocialLinks = ({ insta, twitter, linkedin, github }) => {
   return (
     <div className="flex">
-      <Link href="#" className="m-2">
-        <i className="">
+      {insta && (
+        <Link href={insta} className="m-2" target="_blank">
           <FaInstagram size={22} />
-        </i>
-      </Link>
-      <Link href="#" className="m-2">
-        <i className="">
+        </Link>
+      )}
+      {twitter && (
+        <Link href={twitter} className="m-2" target="_blank">
           <FaXTwitter size={22} />
-        </i>
-      </Link>
-      <Link href="#" className="m-2">
-        <i className="">
+        </Link>
+      )}
+      {linkedin && (
+        <Link href={linkedin} className="m-2" target="_blank">
           <FaLinkedinIn size={22} />
-        </i>
-      </Link>
-      <Link href="#" className="m-2">
-        <i className="">
+        </Link>
+      )}
+      {github && (
+        <Link href={github} className="m-2" target="_blank">
           <FaGithub size={24} />
-        </i>
-      </Link>
+        </Link>
+      )}
     </div>
   );
 };
 
 const About = () => {
   return (
-    <div>
+    <div className="home-container bg-gradient-to-t from-[#a6def7] via-[#5abeea] to-[#000000] w-full min-h-screen overflow-hidden">
       <Navbar />
-      <div className="relative px-40 py-20 bg-gradient-to-b from-[#197fbd] from-10% via-[#5abeea] via-30% to-[#fcfdff] to-90% w-fit">
-        <img className="md:absolute top-8" src="/assets/clouds.svg" alt="" />
-        <div className="first flex items-center text-center justify-evenly">
+      <div className="relative pt-10 md:pt-20">
+        <div className="first relative z-20 flex flex-col-reverse md:flex-row items-center text-center md:text-left justify-evenly">
+          <img
+            className="hidden md:block absolute drop-shadow-xl top-40 md:top-0 md:right-20"
+            src="/assets/clouds.svg"
+            alt=""
+          />
           <p
-            className="w-1/2 text-white text-lg font-bold"
+            className="md:w-1/2 text-xs text-center text-white md:text-lg md:mt-10 font-semibold relative z-50 px-4 md:px-8 cursor-default"
             style={{ fontFamily: "Megrim, system-ui" }}
           >
-            Innovation thrives, where circuits hum and colors blend,{" "}
-            <b>RENUTECH</b> arises &ndash; a fusion of tech and culture, without
-            end. Robo racers sprint, circuits ablaze, in a dance of thought,
-            Soccer fields transform, robotic feet pirouette, algorithms sought.
-            Huddles hum with ideas, innovation&apos;s forge, minds collide and
-            dare, Beyond, a cultural tapestry unfurls, voices raise, bodies in
-            motion share. In the art gallery, dreams and colors entwine,
-            entrepreneurs tread, <b>April 8th to 10th, 2024</b>, etch it in your
-            soul, RENUTECH awaits, where tech and art spread.
+            {" "}
+            <b className="text-[#fcf1c5] text-xl md:text-2xl">
+              Welcome to RenuTech
+            </b>{" "}
+            <br /> the ultimate fusion of technology and innovation, brought to
+            you by <b className="text-[#fcf1c5]">SPNREC Araria!</b> RenuTech is
+            not just a tech fest; it&apos;s an extravaganza that blends
+            cutting-edge technology with creative prowess and intellectual
+            prowess.{" "}
+            <span className="hidden md:block">
+              With a diverse array of events ranging from coding competitions
+              and robotics challenges to debates, quizzes, and workshops,
+              RenuTech offers something for everyone, whether you&apos;re a tech
+              enthusiast or not. Our aim is to create an inclusive platform
+              where students from various disciplines can come together to
+              showcase their talents, exchange ideas, and push the boundaries of
+              innovation.
+            </span>{" "}
+            Join us as we embark on a journey to redefine the future through the
+            convergence of technology and imagination at RenuTech, where
+            possibilities are endless, and innovation knows no bounds.
           </p>
-          <img src="/assets/design_quest.svg" alt="inage" />
+          <img
+            className="drop-shadow-2xl w-80 md:w-96"
+            src="/assets/moon_about.png"
+            alt="inage"
+          />
         </div>
-        <div className="mid mt-8 flex justify-center items-center">
-          <img src="/assets/hello_squad.png" alt="hello" />
+        <img
+          className="absolute top-24 md:top-36 animate-pulse w-screen rotate-180"
+          src="/assets/stars.png"
+          alt="star"
+        />
+        <div className="mid drop-shadow-2xl mt-20 flex justify-center items-center">
+          <img src="/assets/hello_img.png" alt="hello" />
         </div>
 
-        <div className="mt-16">
+        <div
+          className="mt-16 mb-8"
+          style={{ fontFamily: "MedievalSharp, cursive" }}
+        >
           <div className="flex justify-evenly flex-wrap">
             {DevLists.map((dev, index) => (
               <div
-                style={{ fontFamily: "Shantell Sans, cursive" }}
                 key={index}
-                className="bg-white p-4 m-5 w-64 rounded-xl shadow-md flex flex-col items-center justify-center text-center"
+                className="bg-white drop-shadow-2xl p-4 m-5 w-64 rounded-xl shadow-md flex flex-col items-center justify-center text-center"
               >
                 <h1 className="text-lg font-bold mt-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 inline-block text-transparent bg-clip-text">
                   {dev.role}
@@ -110,11 +158,17 @@ const About = () => {
                 <p className="font-semibold text-md">{dev.name}</p>
                 <Link href={`tel:${dev.number}`}>{dev.number}</Link>
                 <Link href={`mailto:${dev.email}`}>{dev.email}</Link>
-                <SocialLinks />
+                <SocialLinks
+                  insta={dev.insta}
+                  twitter={dev.twitter}
+                  linkedin={dev.linkedin}
+                  github={dev.github}
+                />
               </div>
             ))}
           </div>
         </div>
+        <Footer />
       </div>
     </div>
   );
