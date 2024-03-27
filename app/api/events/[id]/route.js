@@ -37,7 +37,7 @@ export async function PUT(req, { params }) {
     }
     await connectDB();
     const id = params.id;
-    const event = await Event.findById(id).populate("coordinators");
+    const event = await Event.findById(id)
 
     if (!event) {
         return NextResponse.error("Event not found", 404);

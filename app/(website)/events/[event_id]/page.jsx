@@ -41,7 +41,7 @@ const EventDetailsCard = ({ params }) => {
               href="/events/register"
               className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
             >
-              Get Registerd
+              Register Now
             </Link>
           </div>
           <div className="w-4/6 pt-5">

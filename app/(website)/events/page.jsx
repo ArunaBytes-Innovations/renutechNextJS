@@ -32,7 +32,7 @@ const Events = () => {
   const EventCard = (props) => {
     return (
       <div
-        className="event  md:my-20 text-center m-10"
+        className="event md:my-20 text-center m-10"
         style={{
           backgroundImage: "url(/assets/event_list_bg.png)",
           backgroundSize: "contain",
@@ -40,15 +40,15 @@ const Events = () => {
         }}
       >
         {/* Event image */}
-        <img className="w-60 h-full p-2" src={props.image} alt="" />
+        <img className="w-60 h-full shadow-2xl p-2" src={props.image} alt="" />
         {/* Event title */}
-        <h3 className="bg-gradient-to-r from-amber-600 via-yellow-300 to-amber-600 font-extrabold block text-transparent bg-clip-text mb-2">
+        <h3 className="bg-gradient-to-r font-serif capitalize from-amber-600 via-yellow-300 to-amber-600 font-extrabold block text-transparent bg-clip-text mb-2">
           {props.title}
         </h3>
         {/* Button to show event details */}
         <Link
           href={`/events/${props.id}`}
-          className="mb-6 bg-[#f4d470] hover:bg-[#e4c568] text-sm py-1 px-4 rounded-lg font-bold "
+          className="mb-6 bg-[#f4d470] hover:bg-[#e4c568] text-sm py-1 px-4 rounded-lg font-bold font-mono tracking-wider "
           type="button"
         >
           Know More
@@ -59,7 +59,7 @@ const Events = () => {
 
   // Rendering component with event cards
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#197fbd] from-10% via-[#5abeea] via-30% to-[#fcfdff]">
+    <div className="min-h-screen bg-gradient-to-b flex flex-col justify-between from-[#197fbd] from-10% via-[#5abeea] via-30% to-[#fcfdff]">
       <div
         className="event-container "
         style={{ fontFamily: "Megrim, system-ui" }}
@@ -72,19 +72,28 @@ const Events = () => {
             Events
           </h1>
         </div>
-        <div className="event-cards flex flex-wrap  justify-around">
-          {/* Mapping over event list to render each event card */}
+        {events.length !== 0 ? (
+          <div className="event-cards flex flex-wrap  justify-around">
+            {/* Mapping over event list to render each event card */}
 
-          {events.map((eventlist, index) => (
-            <div key={index}>
-              <EventCard
-                image={eventlist.imageUrl}
-                title={eventlist.name}
-                id={eventlist._id}
-              />
-            </div>
-          ))}
-        </div>
+            {events.map((eventlist, index) => (
+              <div key={index}>
+                <EventCard
+                  image={eventlist.imageUrl}
+                  title={eventlist.name}
+                  id={eventlist._id}
+                />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-col items-center justify-center h-screen">
+            <div className="border-4 border-gray-200 border-t-0 border-l-0 border-black rounded-full h-20 w-20 animate-spin"></div>
+            <p className="mt-4 text-lg font-semibold text-gray-800">
+              Loading...
+            </p>
+          </div>
+        )}
       </div>
       <Footer />
     </div>
