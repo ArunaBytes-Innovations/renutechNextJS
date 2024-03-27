@@ -23,15 +23,7 @@ const NavLinkGroup = () => {
   );
 };
 
-const MenuLinks = [
-  "contact",
-  "rules",
-  "co-ordinators",
-  "accommondation",
-  "sponsor",
-  "gallary",
-  "F&Q",
-];
+const MenuLinks = ["contact", "brochure"];
 const MenuLinkGroup = () => {
   return (
     <div id="nav-links" className="text-white">

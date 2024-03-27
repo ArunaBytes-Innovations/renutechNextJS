@@ -30,7 +30,7 @@ const Home = () => {
             </Link>
           </div>
           <img
-            className="absolute top-24 md:top-36 animate-pulse w-screen rotate-180"
+            className="absolute top-24 md:top-36 min-h-full animate-pulse w-screen rotate-180"
             src="/assets/stars.png"
             alt="star"
           />

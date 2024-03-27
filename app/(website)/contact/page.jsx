@@ -1,21 +1,50 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Navbar from "@/components/web/Navbar";
 
 const Contact = () => {
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Your form submission logic goes here
+    // For demonstration purposes, just show the popup
+    setShowPopup(true);
+  };
+
+  const handleClose = () => {
+    setShowPopup(false);
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#197fbd] from-10% via-[#5abeea] via-30% to-[#cacccf]">
+    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-t from-[#a6def7] via-[#5abeea] to-[#000000] overflow-hidden">
       <Navbar />
+      <img
+        className="absolute top-0 left-0 animate-pulse rotate-180"
+        src="/assets/stars.png"
+        alt="star"
+      />
+      <div className="">
+        <img
+          className=" absolute top-0 right-0 md:top-20 md:right-20 w-54 h-48 animate-spin"
+          src="/assets/moon_full.png"
+          alt=""
+          style={{ animation: "spin 40s linear infinite" }}
+        />
+      </div>
       <div
-        className="max-w-md w-full bg-white bg-opacity-25 shadow-md rounded-xl p-8"
-        style={{ fontFamily: "Shantell Sans, cursive" }}
+        className="max-w-md relative z-40 w-[90%] md:full bg-white bg-opacity-25 shadow-md rounded-xl p-8 overflow-hidden"
+        style={{ fontFamily: "Lato, sans-serif" }}
       >
-        <h2 className="text-2xl font-bold mb-4 text-center">Contact Us</h2>
-        <form>
+        <h2 className="text-2xl font-bold mb-4 text-center cursor-default text-white underline underline-offset-8  decoration-wavy">
+          Contact Us
+        </h2>
+        <form onSubmit={handleSubmit}>
           <div className="relative">
             <input
               type="text"
               id="name"
-              className="peer my-4 w-80 bg-inherit h-8 focus:outline-none  placeholder-transparent border-b-2 "
+              className="peer my-4 w-64 md:w-80 bg-inherit h-8 focus:outline-none capitalize placeholder-transparent border-b-2 "
               placeholder="name"
               required
             />
@@ -36,7 +65,7 @@ const Contact = () => {
             <input
               type="text"
               id="college"
-              className="peer my-4 w-80 bg-inherit h-8 focus:outline-none  placeholder-transparent border-b-2 "
+              className="peer my-4 w-64 md:w-80 bg-inherit h-8 focus:outline-none capitalize placeholder-transparent border-b-2 "
               placeholder="college name"
               required
             />
@@ -57,7 +86,7 @@ const Contact = () => {
             <input
               type="email"
               id="user"
-              className="peer my-4 bg-inherit w-80 h-8 focus:outline-none  placeholder-transparent border-b-2 "
+              className="peer my-4 bg-inherit w-64 md:w-80 h-8 focus:outline-none placeholder-transparent border-b-2 "
               placeholder="Email"
               required
             />
@@ -85,20 +114,36 @@ const Contact = () => {
               id="message"
               name="message"
               rows="4"
-              className="border border-gray-300 rounded-md p-2 w-full  focus:outline-none focus:border-blue-500"
+              className="border border-gray-300 rounded-md p-2 w-full  focus:outline-none"
               required
             ></textarea>
           </div>
           <div className="flex justify-end">
             <button
               type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:bg-blue-700"
             >
               Submit
             </button>
           </div>
         </form>
       </div>
+      {showPopup && (
+        <div className="fixed z-50 inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
+          <div className="relative w-[90%] md:w-auto bg-white p-8 rounded-lg shadow-lg text-center">
+            <button
+              onClick={handleClose}
+              className=" absolute top-0 right-0 font-semibold px-2 text-lg hover:text-red-500 focus:outline-none"
+            >
+              x
+            </button>
+            <h2 className="text-2xl mb-4 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 inline-block text-transparent bg-clip-text font-bold">
+              Thank you for contacting us!
+            </h2>
+            <p className=" font-semibold">We will reach out to you soon.</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
