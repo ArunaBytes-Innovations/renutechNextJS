@@ -57,6 +57,7 @@ export async function POST(req) {
             <h1>Welcome ${student.name}!</h1>
             <p>You have been successfully registered to RenuTech Event.</p>
 
+            <p> <strong> Please Share Payment Screenshot by replying to this email. </strong> </p>
             <h2>Registration Details:</h2>
             <ul>
                 <li><strong>Name:</strong> ${student.name}</li>

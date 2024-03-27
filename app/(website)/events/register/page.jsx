@@ -1,10 +1,10 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
+import Link from "next/link";
+
 const Register = () => {
-  const router = useRouter();
   const [page, setPage] = useState(1);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -57,10 +57,46 @@ const Register = () => {
     "comedy Z remedy",
   ];
 
+  const [showMessage, setShowMessage] = useState(false); // State to show/hide message
+  // on submit message
+  const SubmitMessage = () => {
+    return (
+      <div className="absolute top-0 bottom-0 right-0 left-0 bg-black/60 z-10 flex justify-center items-center">
+        <div className="bg-white min-w-64 min-h-52 rounded-3xl shadow-xl p-5">
+          <p className="font-semibold bg-gradient-to-br from-purple-600 via-pink-600 to-blue-600 inline-block text-transparent bg-clip-text">
+            Thankyou For Registering!
+          </p>
+          <p>You will recive a confirmation Email shortly..</p>
+          <p className="mt-4">
+            NOTE : Share Payment Recipt by replyling to the mail.
+          </p>
+          <Link
+            href={"/"}
+            className="btn btn-accent font-mono uppercase text-xl mt-2"
+          >
+            Okay!
+          </Link>
+        </div>
+      </div>
+    );
+  };
+
+  const [showSubmiting, setShowSubmiting] = useState(false); // State to show/hide submiting form
+  const SubmitingForm = () => {
+    return (
+      <div className="absolute top-0 bottom-0 right-0 left-0 bg-black/60 z-10 flex justify-center items-center">
+        <div className="bg-white min-w-64 min-h-52 rounded-3xl shadow-xl p-5 flex justify-center items-center">
+          {/* loading */}
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
+        </div>
+      </div>
+    );
+  };
+
   // Function to handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default form submission behavior
-
+    setShowSubmiting(true); // Show submiting form
     let events = [event1, event2, event3, event4].filter((event) => event); // Filter out empty event values
 
     // Add additional event to events array if it is not empty
@@ -99,12 +135,13 @@ const Register = () => {
       if (response.ok) {
         // Handle successful response
         console.log("Form data submitted successfully!");
-        alert("Registerd successfully!");
-        router.push("/");
+        setShowSubmiting(false); // Hide submiting form
+        setShowMessage(true); // Show success message
         // Optionally, reset form fields or show a success message
       } else {
         // Handle error response
         console.error("Failed to submit form data");
+        alert("Failed to submit form data");
       }
     } catch (error) {
       // Handle fetch error
@@ -497,6 +534,9 @@ const Register = () => {
           </div>
         </form>
       </div>
+
+      {showMessage && <SubmitMessage />}
+      {showSubmiting && <SubmitingForm />}
     </div>
   );
 };
