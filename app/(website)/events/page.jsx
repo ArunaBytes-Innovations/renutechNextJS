@@ -32,7 +32,7 @@ const Events = () => {
   const EventCard = (props) => {
     return (
       <div
-        className="event  md:my-20 text-center m-10"
+        className="event md:my-20 text-center m-10"
         style={{
           backgroundImage: "url(/assets/event_list_bg.png)",
           backgroundSize: "contain",
@@ -40,15 +40,15 @@ const Events = () => {
         }}
       >
         {/* Event image */}
-        <img className="w-60 h-full p-2" src={props.image} alt="" />
+        <img className="w-60 h-full shadow-2xl p-2" src={props.image} alt="" />
         {/* Event title */}
-        <h3 className="bg-gradient-to-r from-amber-600 via-yellow-300 to-amber-600 font-extrabold block text-transparent bg-clip-text mb-2">
+        <h3 className="bg-gradient-to-r font-serif capitalize from-amber-600 via-yellow-300 to-amber-600 font-extrabold block text-transparent bg-clip-text mb-2">
           {props.title}
         </h3>
         {/* Button to show event details */}
         <Link
           href={`/events/${props.id}`}
-          className="mb-6 bg-[#f4d470] hover:bg-[#e4c568] text-sm py-1 px-4 rounded-lg font-bold "
+          className="mb-6 bg-[#f4d470] hover:bg-[#e4c568] text-sm py-1 px-4 rounded-lg font-bold font-mono tracking-wider "
           type="button"
         >
           Know More
