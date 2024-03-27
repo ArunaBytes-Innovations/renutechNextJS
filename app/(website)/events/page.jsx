@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "@/components/web/Navbar"; // Importing Navbar component
 import Link from "next/link"; // Importing Link component from Next.js
+import Footer from "@/components/web/Footer";
 
 // Functional component Events
 const Events = () => {
@@ -58,31 +59,34 @@ const Events = () => {
 
   // Rendering component with event cards
   return (
-    <div
-      className="event-container min-h-screen bg-gradient-to-b from-[#197fbd] from-10% via-[#5abeea] via-30% to-[#fcfdff]"
-      style={{ fontFamily: "Megrim, system-ui" }}
-    >
-      {/* Navbar component */}
-      <Navbar />
-      {/* Displaying event cards */}
-      <div>
-        <h1 className="text-center text-4xl text-white font-bold pt-24">
-          Events
-        </h1>
-      </div>
-      <div className="event-cards flex flex-wrap  justify-around">
-        {/* Mapping over event list to render each event card */}
+    <div className="min-h-screen bg-gradient-to-b from-[#197fbd] from-10% via-[#5abeea] via-30% to-[#fcfdff]">
+      <div
+        className="event-container "
+        style={{ fontFamily: "Megrim, system-ui" }}
+      >
+        {/* Navbar component */}
+        <Navbar />
+        {/* Displaying event cards */}
+        <div>
+          <h1 className="text-center text-4xl text-white font-bold pt-24">
+            Events
+          </h1>
+        </div>
+        <div className="event-cards flex flex-wrap  justify-around">
+          {/* Mapping over event list to render each event card */}
 
-        {events.map((eventlist, index) => (
-          <div key={index}>
-            <EventCard
-              image={eventlist.imageUrl}
-              title={eventlist.name}
-              id={eventlist._id}
-            />
-          </div>
-        ))}
+          {events.map((eventlist, index) => (
+            <div key={index}>
+              <EventCard
+                image={eventlist.imageUrl}
+                title={eventlist.name}
+                id={eventlist._id}
+              />
+            </div>
+          ))}
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };
