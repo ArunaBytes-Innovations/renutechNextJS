@@ -20,7 +20,6 @@ const Register = () => {
   const [additionalEvent, setAdditionalEvent] = useState("");
   const [paymentDate, setPaymentDate] = useState("");
   const [transactionId, setTransactionId] = useState("");
-  const [paymentProof, setPaymentProof] = useState(null);
 
   // List of events
   const Events = [
@@ -72,18 +71,18 @@ const Register = () => {
       events = [...events, ...additionalEventArray];
     }
 
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("contact", contact);
-    formData.append("email", email);
-    formData.append("college", college);
-    formData.append("registrationNo", registrationNo);
-    formData.append("branch", branch);
-    formData.append("year", year);
-    formData.append("events", JSON.stringify(events));
-    formData.append("paymentDate", paymentDate);
-    formData.append("transactionId", transactionId);
-    formData.append("paymentProof", paymentProof);
+    const formData = {
+      name,
+      email,
+      contact,
+      college,
+      registrationNo,
+      branch,
+      year,
+      events,
+      paymentDate,
+      transactionId,
+    };
 
     console.log(formData);
 
@@ -91,7 +90,10 @@ const Register = () => {
       // Make POST request to your server endpoint
       const response = await fetch("/api/students", {
         method: "POST",
-        body: formData, // Send form data object
+        headers: {
+          "Content-Type": "application/json", // Set content type to JSON
+        },
+        body: JSON.stringify(formData), // Send form data as JSON
       });
 
       if (response.ok) {
@@ -423,6 +425,14 @@ const Register = () => {
                   Pay to UPI ID:{" "}
                   <span className="text-red-600">principalspnrec@ucobank</span>
                 </p>
+                <p className="p-2 font-semibold font-mono underline">
+                  Note<span className="text-red-600">*</span>: Please add
+                  remarks during payment &apos;
+                  <span className="text-red-500 font-bold">
+                    RenuTech Registration
+                  </span>
+                  &apos;
+                </p>
               </div>
               <div className="cont-1">
                 {/* Input for Payment Date */}
@@ -453,19 +463,6 @@ const Register = () => {
                   className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
                 />
                 {/* Input for Payment Proof */}
-                <label htmlFor="prrof">
-                  <span className=" text-red-600">*</span>Payment Proof:
-                </label>
-                <input
-                  type="file"
-                  name="proof"
-                  id="proof"
-                  required
-                  onChange={(e) =>
-                    e.target.files?.[0] && setPaymentProof(e.target.files[0])
-                  }
-                  className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
-                />
               </div>
             </div>
           )}

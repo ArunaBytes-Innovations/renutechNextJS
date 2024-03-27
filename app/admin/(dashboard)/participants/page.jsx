@@ -526,14 +526,14 @@ const InstStudents = () => {
     <div className="p-10 bg-slate-600 min-h-screen">
       <div className="flex flex-row items-center mx-12">
         <h1 className="text-3xl font-bold tracking-wide text-[#FFFDB2]">
-          Events
+          Participants
         </h1>
-        <div
-          onClick={() => setShowAddStudent(true)}
+        {/* <div
+          // onClick={() => setShowAddStudent(true)}
           className=" cursor-pointer bg-green-600 font-semibold text-white ml-auto  px-2 py-1 rounded-md shadow-md shadow-slate-500/50"
         >
           + Add Student
-        </div>
+        </div> */}
       </div>
 
       <StudentList />

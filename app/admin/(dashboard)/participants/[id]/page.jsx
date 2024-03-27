@@ -194,56 +194,47 @@ function StudentForm({ params }) {
             className="mt-1 p-2 border border-gray-300 rounded-md w-full"
           />
         </div>
-        <div className="flex justify-around">
-          <div className="flex w-96">
-            <img
-              className="w-full h-full object-cover rounded-md"
-              // src={`../tmp/payments/${student._id}.jpg`}
-              src={`../../../../../tmp/payments/${student._id}.jpg`}
-              alt=""
+
+        <div className="flex">
+          <div className="mb-4 m-1 basis-1/3">
+            <label className=" text-sm font-medium flex items-center text-gray-700">
+              Payment Status {`(check to approve)`}:
+              <input
+                type="checkbox"
+                name="paymentStatus"
+                checked={student.paymentStatus}
+                onChange={(e) =>
+                  setStudent({ ...student, paymentStatus: e.target.checked })
+                }
+                className="mt-1 ml-2 p-2 border w-5 h-5 border-gray-300 rounded-md "
+              />
+            </label>
+          </div>
+          <div className="mb-4 basis-1/3 m-1">
+            <label className="block text-sm font-medium text-gray-700">
+              Payment Date:
+            </label>
+            <input
+              type="text"
+              disabled
+              name="paymentDate"
+              value={new Date(student.paymentDate).toLocaleDateString()}
+              onChange={handleChange}
+              className="mt-1 p-2 border border-gray-300 rounded-md w-full"
             />
           </div>
-          <div className="flex flex-col">
-            <div className="mb-4 basis-1/3 m-1">
-              <label className=" text-sm font-medium flex items-center text-gray-700">
-                Payment Status {`(check to approve)`}:
-                <input
-                  type="checkbox"
-                  name="paymentStatus"
-                  checked={student.paymentStatus}
-                  onChange={(e) =>
-                    setStudent({ ...student, paymentStatus: e.target.checked })
-                  }
-                  className="mt-1 ml-2 p-2 border w-5 h-5 border-gray-300 rounded-md "
-                />
-              </label>
-            </div>
-            <div className="mb-4 basis-1/3 m-1">
-              <label className="block text-sm font-medium text-gray-700">
-                Payment Date:
-              </label>
-              <input
-                type="text"
-                disabled
-                name="paymentDate"
-                value={new Date(student.paymentDate).toLocaleDateString()}
-                onChange={handleChange}
-                className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-              />
-            </div>
-            <div className="mb-4 basis-1/3 m-1">
-              <label className="block text-sm font-medium text-gray-700">
-                Transaction ID:
-              </label>
-              <input
-                type="text"
-                name="transactionId"
-                disabled
-                value={student.transactionId}
-                onChange={handleChange}
-                className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-              />
-            </div>
+          <div className="mb-4 basis-1/3 m-1">
+            <label className="block text-sm font-medium text-gray-700">
+              Transaction ID:
+            </label>
+            <input
+              type="text"
+              name="transactionId"
+              disabled
+              value={student.transactionId}
+              onChange={handleChange}
+              className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+            />
           </div>
         </div>
 

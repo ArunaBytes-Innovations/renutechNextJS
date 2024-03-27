@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
 import connectDB from "@/app/lib/connectDB";
 import Student from "@/app/models/Student";
-
-import { writeFile } from "fs/promises";
-
 import jwt from "jsonwebtoken"
 import { headers } from "next/headers";
+
+
+import nodemailer from 'nodemailer';
 
 export async function GET() {
     const headersList = headers();
@@ -32,31 +32,48 @@ export async function GET() {
     return NextResponse.json(students);
 }
 
+
+const nodePass = process.env.NODEMAILER_PASS
+
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        // TODO: replace `user` and `pass` values from <https://forwardemail.net>
+        user: process.env.NODEMAILER_USER,
+        pass: nodePass
+    },
+});
+
 export async function POST(req) {
     await connectDB();
-    const data = await req.formData();
-    const paymentProof = data.get('paymentProof');
-    const newStudent = {
-        name: data.get('name'),
-        contact: data.get('contact'),
-        email: data.get('email'),
-        college: data.get('college'),
-        registrationNo: data.get('registrationNo'),
-        branch: data.get('branch'),
-        year: data.get('year'),
-        paymentStatus: data.get('paymentStatus'),
-        paymentDate: data.get('paymentDate'),
-        transactionId: data.get('transactionId'),
-        events: data.get('events'),
-    };
+    const newStudent = await req.json();
     const student = new Student(newStudent);
 
-    if (paymentProof) {
-        const byteData = await paymentProof.arrayBuffer();
-        const buffer = Buffer.from(byteData);
-        const path = `./tmp/payments/${student._id.toString()}.jpg`;
-        await writeFile(path, buffer);
-    }
+    await transporter.sendMail({
+        from: process.env.NODEMAILER_USER, // sender address
+        to: student.email,
+        subject: `${student.name} : You have been Registred`, // Subject line
+        html: `
+            <h1>Welcome ${student.name}!</h1>
+            <p>You have been successfully registered to RenuTech Event.</p>
+
+            <h2>Registration Details:</h2>
+            <ul>
+                <li><strong>Name:</strong> ${student.name}</li>
+                <li><strong>Contact:</strong> ${student.contact}</li>
+                <li><strong>Email:</strong> ${student.email}</li>
+                <li><strong>College:</strong> ${student.college}</li>
+                <li><strong>Registration No:</strong> ${student.registrationNo}</li>
+                <li><strong>Branch:</strong> ${student.branch}</li>
+                <li><strong>Year:</strong> ${student.year}</li>
+                <li><strong>Payment Date:</strong> ${student.paymentDate ? new Date(student.paymentDate).toLocaleDateString() : 'Not Available'}</li>
+                <li><strong>Transaction ID:</strong> ${student.transactionId}</li>
+                <li><strong>Events:</strong> ${student.events.join(', ')}</li>
+            </ul>
+            <p>Thank you for registering!</p>
+        `, // html body
+    });
+
     await student.save();
     return NextResponse.json(student);
 }
