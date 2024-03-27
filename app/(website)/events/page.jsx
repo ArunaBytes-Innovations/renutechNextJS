@@ -59,7 +59,7 @@ const Events = () => {
 
   // Rendering component with event cards
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#197fbd] from-10% via-[#5abeea] via-30% to-[#fcfdff]">
+    <div className="min-h-screen bg-gradient-to-b flex flex-col justify-between from-[#197fbd] from-10% via-[#5abeea] via-30% to-[#fcfdff]">
       <div
         className="event-container "
         style={{ fontFamily: "Megrim, system-ui" }}
@@ -72,19 +72,28 @@ const Events = () => {
             Events
           </h1>
         </div>
-        <div className="event-cards flex flex-wrap  justify-around">
-          {/* Mapping over event list to render each event card */}
+        {events.length !== 0 ? (
+          <div className="event-cards flex flex-wrap  justify-around">
+            {/* Mapping over event list to render each event card */}
 
-          {events.map((eventlist, index) => (
-            <div key={index}>
-              <EventCard
-                image={eventlist.imageUrl}
-                title={eventlist.name}
-                id={eventlist._id}
-              />
-            </div>
-          ))}
-        </div>
+            {events.map((eventlist, index) => (
+              <div key={index}>
+                <EventCard
+                  image={eventlist.imageUrl}
+                  title={eventlist.name}
+                  id={eventlist._id}
+                />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-col items-center justify-center h-screen">
+            <div className="border-4 border-gray-200 border-t-0 border-l-0 border-black rounded-full h-20 w-20 animate-spin"></div>
+            <p className="mt-4 text-lg font-semibold text-gray-800">
+              Loading...
+            </p>
+          </div>
+        )}
       </div>
       <Footer />
     </div>
