@@ -4,12 +4,50 @@ import Navbar from "@/components/web/Navbar";
 
 const Contact = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    college: "",
+    email: "",
+    message: "",
+  });
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Your form submission logic goes here
-    // For demonstration purposes, just show the popup
-    setShowPopup(true);
+  // Function to handle form submission
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+    try {
+      // Make POST request to your server endpoint
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json", // Set content type to JSON
+        },
+        body: JSON.stringify(formData), // Send form data as JSON
+      });
+
+      if (response.ok) {
+        // Handle successful response
+        console.log("Form data submitted successfully!");
+        setShowPopup(true);
+        setFormData({
+          fullName: "",
+          college: "",
+          email: "",
+          message: "",
+        });
+      } else {
+        // Handle error response
+        console.error("Failed to submit form data");
+        alert("Failed to submit form data");
+        window.location.reload();
+      }
+    } catch (error) {
+      // Handle fetch error
+      console.error("Error occurred while submitting form data:", error);
+    }
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleClose = () => {
@@ -43,13 +81,16 @@ const Contact = () => {
           <div className="relative">
             <input
               type="text"
-              id="name"
+              id="fullName"
+              name="fullName"
               className="peer my-4 w-64 md:w-80 bg-inherit h-8 focus:outline-none capitalize placeholder-transparent border-b-2 "
-              placeholder="name"
+              placeholder="fullName"
               required
+              value={formData.fullName}
+              onChange={handleChange}
             />
             <label
-              htmlFor="name"
+              htmlFor="fullName"
               className=" absolute font-medium  left-0 -top-0.5 text-gray-600 text-sm transition-all duration-300 
                                             peer-placeholder-shown:text-base
                                           peer-placeholder-shown:text-black
@@ -68,6 +109,9 @@ const Contact = () => {
               className="peer my-4 w-64 md:w-80 bg-inherit h-8 focus:outline-none capitalize placeholder-transparent border-b-2 "
               placeholder="college name"
               required
+              name="college"
+              value={formData.college}
+              onChange={handleChange}
             />
             <label
               htmlFor="college"
@@ -89,6 +133,9 @@ const Contact = () => {
               className="peer my-4 bg-inherit w-64 md:w-80 h-8 focus:outline-none placeholder-transparent border-b-2 "
               placeholder="Email"
               required
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
             />
             <label
               htmlFor="user"
@@ -116,6 +163,8 @@ const Contact = () => {
               rows="4"
               className="border border-gray-300 rounded-md p-2 w-full  focus:outline-none"
               required
+              value={formData.message}
+              onChange={handleChange}
             ></textarea>
           </div>
           <div className="flex justify-end">
