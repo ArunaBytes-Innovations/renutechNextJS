@@ -1,8 +1,9 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import "./Style/Navbar.css";
 
-import { FcMenu } from "react-icons/fc";
+import { RiMenuLine, RiCloseLine } from "react-icons/ri";
 
 const NavLinks = ["home", "events", "about"];
 const NavLinkGroup = () => {
@@ -12,7 +13,7 @@ const NavLinkGroup = () => {
         return (
           <Link
             key={index}
-            className="capitalize block md:inline-block md:mr-6 md:hover:border-b-2 border-white list-disc leading-10 md:list-none md:hover:text-white hover:font-bold"
+            className="capitalize block md:inline-block md:mr-6 md:hover:border-b-2 border-white list-disc leading-10 md:leading-none md:list-none md:hover:text-white hover:font-bold"
             href={link == "home" ? "/" : `/${link}`}
           >
             {link}
@@ -37,6 +38,7 @@ const MenuLinkGroup = () => {
                   className="capitalize list-disc leading-10 hover:font-bold"
                   href="https://drive.google.com/uc?export=download&id=15HcbdxJsUcALR0v2jXcV7njxzUJoO05g" // Provide the actual path to your brochure PDF file here
                   download // Add the 'download' attribute to force download
+                  target="_blank" // Open the link in a new tab
                 >
                   {link}
                 </Link>
@@ -58,6 +60,12 @@ const MenuLinkGroup = () => {
 };
 
 const Navbar = () => {
+  const [toggle, setToggle] = useState(false);
+
+  const handleToggle = () => {
+    setToggle(!toggle);
+  };
+
   return (
     <div
       className="nav-cont flex justify-between items-center px-10 md:px-20 bg-blur backdrop-blur md:h-20 fixed top-0  w-screen"
@@ -73,12 +81,17 @@ const Navbar = () => {
       </div>
 
       <div className="">
-        <input type="checkbox" id="check" className="hidden" />
+        <input
+          type="checkbox"
+          id="check"
+          className="hidden"
+          onClick={handleToggle}
+        />
         <label
           htmlFor="check"
           className=" float-right p-2 bg-slate-200 rounded-lg"
         >
-          <FcMenu />
+          {toggle ? <RiCloseLine /> : <RiMenuLine />}
         </label>
         <ul className="menu-list hidden w-64 pt-6 float-right h-screen bg-black bg-opacity-50 fixed top-20 -mt-5 md:-mt-2.5 right-0 pl-16 z-20">
           <li className=" md:hidden text-start list-disc">
