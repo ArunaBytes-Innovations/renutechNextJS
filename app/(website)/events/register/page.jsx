@@ -142,6 +142,7 @@ const Register = () => {
         // Handle error response
         console.error("Failed to submit form data");
         alert("Failed to submit form data");
+        window.location.reload();
       }
     } catch (error) {
       // Handle fetch error
@@ -450,7 +451,7 @@ const Register = () => {
           {/* page 4  */}
           {page == 4 && (
             <div>
-              <div className="flex flex-col justify-center items-center">
+              <div className="flex flex-col justify-center items-center text-center md:text-left">
                 <p className="pb-2">Scan the QR code</p>
                 <img
                   className="w-40 h-auto"
@@ -466,7 +467,7 @@ const Register = () => {
                   Note<span className="text-red-600">*</span>: Please add
                   remarks during payment &apos;
                   <span className="text-red-500 font-bold">
-                    RenuTech Registration
+                    RenuTech Registration - Your Registation No.
                   </span>
                   &apos;
                 </p>

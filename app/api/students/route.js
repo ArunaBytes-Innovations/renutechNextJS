@@ -47,6 +47,13 @@ const transporter = nodemailer.createTransport({
 export async function POST(req) {
     await connectDB();
     const newStudent = await req.json();
+
+    const oldStudent = await Student.findOne({ email: newStudent.email });
+
+    if (oldStudent) {
+        return NextResponse.json({ message: 'Email already registered!! Try different Email.' });
+    }
+
     const student = new Student(newStudent);
 
     await transporter.sendMail({

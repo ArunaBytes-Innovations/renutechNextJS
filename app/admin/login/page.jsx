@@ -31,9 +31,11 @@ const AdminLoginPage = () => {
       const responseData = await response.json();
       console.log("Logged IN :", responseData);
       // Store token to local storage
-      localStorage.setItem("token", responseData.token);
+      if (responseData.token) {
+        localStorage.setItem("token", responseData.token);
+        router.push("/admin");
+      }
 
-      router.push("/admin");
       // Optionally, you can redirect the user or show a success message here
     } catch (error) {
       console.error("Error logging user:", error);
