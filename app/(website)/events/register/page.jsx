@@ -350,7 +350,7 @@ const Register = () => {
           {page == 3 && (
             <div>
               <h2 className="font-semibold text-center border-2 p-1 rounded-lg shadow-md bg-blue-300 my-2">
-                Event Registraion Fee &#8377; 300 for 4 events.. &#8377; 100 per
+                Event Registraion Fee &#8377;300 for 4 events.. &#8377;100 per
                 additional event.
               </h2>
               {/* Input for Event 1 */}
