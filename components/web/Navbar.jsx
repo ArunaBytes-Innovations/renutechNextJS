@@ -31,12 +31,24 @@ const MenuLinkGroup = () => {
         {MenuLinks.map((link, index) => {
           return (
             <li key={index}>
-              <Link
-                className="capitalize list-disc leading-10 hover:font-bold"
-                href={link == "home" ? "/" : `/${link}`}
-              >
-                {link}
-              </Link>
+              {/* Check if the current link is "brochure" */}
+              {link === "brochure" ? (
+                <Link
+                  className="capitalize list-disc leading-10 hover:font-bold"
+                  href="https://drive.google.com/uc?export=download&id=15HcbdxJsUcALR0v2jXcV7njxzUJoO05g" // Provide the actual path to your brochure PDF file here
+                  download // Add the 'download' attribute to force download
+                >
+                  {link}
+                </Link>
+              ) : (
+                // For other links, use Link component
+                <Link
+                  className="capitalize list-disc leading-10 hover:font-bold"
+                  href={link === "home" ? "/" : `/${link}`}
+                >
+                  {link}
+                </Link>
+              )}
             </li>
           );
         })}
