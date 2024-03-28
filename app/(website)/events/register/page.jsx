@@ -349,6 +349,10 @@ const Register = () => {
           {/* page 3  */}
           {page == 3 && (
             <div>
+              <h2 className="font-semibold text-center border-2 p-1 rounded-lg shadow-md bg-blue-300 my-2">
+                Event Registraion Fee &#8377; 300 for 4 events.. &#8377; 100 per
+                additional event.
+              </h2>
               {/* Input for Event 1 */}
               <label htmlFor="event_first" className="">
                 <span className=" text-red-600">*</span>Event 1:
@@ -434,11 +438,13 @@ const Register = () => {
               {/* Input for Additional Event */}
               <label htmlFor="additional">
                 Additional event name :{" "}
-                <span className=" text-blue-400 text-sm">(if any)</span>
+                <span className=" text-blue-400 text-sm">
+                  (if any use {", "} to seprate)
+                </span>
               </label>
               <input
                 type="text"
-                placeholder="Enter event name"
+                placeholder="codeking, paper presentation, rubix"
                 name="additional"
                 id="additional"
                 value={additionalEvent}
