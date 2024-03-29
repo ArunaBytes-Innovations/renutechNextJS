@@ -47,7 +47,7 @@ const Events = () => {
           alt=""
         />
         {/* Event title */}
-        <h3 className="text-lg -mt-4 bg-gradient-to-r capitalize from-amber-600 via-yellow-300 to-amber-600 font-extrabold block text-transparent bg-clip-text mb-2">
+        <h3 className="text-lg bg-gradient-to-r capitalize from-amber-600 via-yellow-300 to-amber-600 font-extrabold block text-transparent bg-clip-text mb-2">
           {props.title} <br /> {props.type ? `(${props.type})` : ""}
         </h3>
         {/* Button to show event details */}
