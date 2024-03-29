@@ -41,7 +41,7 @@ const Events = () => {
         }}
       >
         {/* Event image */}
-        <img className="w-60 h-60 shadow-2xl p-2" src={props.image} alt="" />
+        <img className=" w-48 h-48 shadow-2xl p-2" src={props.image} alt="" />
         {/* Event title */}
         <h3 className="text-lg -mt-6 bg-gradient-to-r capitalize from-amber-600 via-yellow-300 to-amber-600 font-extrabold block text-transparent bg-clip-text mb-2">
           {props.title} <br /> {`(${props.type})`}
