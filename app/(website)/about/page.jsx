@@ -95,10 +95,7 @@ const About = () => {
             src="/assets/clouds.svg"
             alt=""
           />
-          <p
-            className="md:w-1/2 text-xs text-center text-white md:text-lg md:mt-10 font-semibold relative z-50 px-4 md:px-8 cursor-default"
-            style={{ fontFamily: "Megrim, system-ui" }}
-          >
+          <p className="md:w-1/2 text-xs text-center text-white md:text-lg md:mt-10 font-semibold relative z-50 px-4 md:px-8 cursor-default">
             {" "}
             <b className="text-[#fcf1c5] text-xl md:text-2xl">
               Welcome to RenuTech
