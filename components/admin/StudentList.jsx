@@ -68,19 +68,29 @@ const StudentList = () => {
       <div className="mx-10 my-4">
         <button
           onClick={() => setShowStudentsByPaymentStatus("All")}
-          className="btn btn-ghost outline rounded-xl bg-gray-200 mx-2"
+          className={`btn btn-ghost ${
+            showStudentsByPaymentStatus == "All" ? "bg-blue-400" : "bg-gray-200"
+          } outline rounded-xl  mx-2`}
         >
           All
         </button>
         <button
           onClick={() => setShowStudentsByPaymentStatus("Pending")}
-          className="btn btn-ghost outline rounded-xl bg-gray-200 mx-2"
+          className={`btn btn-ghost ${
+            showStudentsByPaymentStatus == "Pending"
+              ? "bg-blue-400"
+              : "bg-gray-200"
+          } outline rounded-xl  mx-2`}
         >
           Pending
         </button>
         <button
           onClick={() => setShowStudentsByPaymentStatus("Approved")}
-          className="btn btn-ghost outline rounded-xl bg-gray-200 mx-2"
+          className={`btn btn-ghost ${
+            showStudentsByPaymentStatus == "Approved"
+              ? "bg-blue-400"
+              : "bg-gray-200"
+          } outline rounded-xl  mx-2`}
         >
           Approved
         </button>
