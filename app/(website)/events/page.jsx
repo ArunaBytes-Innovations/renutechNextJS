@@ -86,6 +86,10 @@ const Events = () => {
         <div className="relative z-40  text-center">
           {/* Displaying event cards */}
 
+          <h1 className="text-white mt-20 text-5xl font-mono font-bold">
+            Events
+          </h1>
+
           {events.length !== 0 ? (
             <div className="event-cards flex flex-wrap  justify-around">
               {/* Mapping over event list to render each event card */}
