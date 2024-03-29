@@ -9,6 +9,15 @@ const eventSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    eventType: {
+        type: String,
+        required: true,
+    },
+
+    ruleBookUrl: {
+        type: String,
+        required: true,
+    },
     imageUrl: {
         type: String,
         required: true,

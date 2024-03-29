@@ -53,7 +53,7 @@ const EventDetailsCard = ({ params }) => {
         <div className="event-details-card   flex justify-center items-center text-white">
           <div className=" flex flex-col relative bg-black bg-opacity-40 py-10 md:py-4 md:flex-row lg:w-4/6 justify-evenly mb-10 items-center border-black/30 m-2 mt-20 border-2 rounded-xl shadow-xl h-auto px-2 cursor-default">
             <Link
-              href="./"
+              href="/events"
               className=" absolute top-2 right-4 py-2 px-4 bg-white hover:bg-slate-200 text-black rounded-xl font-bold"
             >
               x
@@ -68,16 +68,18 @@ const EventDetailsCard = ({ params }) => {
               </Link>
             </div>
             <div className="md:w-4/6 pt-5 px-5 md:pr-5 flex flex-col justify-center md:items-start items-center">
-              <h1 className="text-3xl font-bold capitalize">{event.name}</h1>
+              <h1 className="text-3xl font-bold capitalize">
+                {event.name} - {event.eventType}
+              </h1>
               <p className="pt-4 mb-6 font-medium cursor-default text-center md:text-left">
                 {event.description}
               </p>
               <span className="font-medium">
                 For more details!{" "}
                 <Link
-                  href="#"
+                  href={event.ruleBookUrl ? event.ruleBookUrl : "#"}
                   target="_blank"
-                  className="p-2 my-4 bg-rose-500 hover:bg-rose-600 rounded-lg text-white"
+                  className="p-2 my-4 mx-2 bg-rose-500 hover:bg-rose-600 rounded-lg text-white"
                 >
                   Click here
                 </Link>

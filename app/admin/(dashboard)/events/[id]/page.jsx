@@ -13,6 +13,8 @@ const EditEvents = ({ params }) => {
     coordinatorMobile1: "",
     coordinatorName2: "",
     coordinatorMobile2: "",
+    eventType: "",
+    ruleBookUrl: "",
   });
 
   const [token, setToken] = useState("");
@@ -97,6 +99,42 @@ const EditEvents = ({ params }) => {
               placeholder="Event Name"
               required
               value={formData.name}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              htmlFor="eventType"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Event Type
+            </label>
+            <input
+              type="text"
+              id="eventType"
+              name="eventType"
+              className="mt-1 p-2 block w-full border rounded-md"
+              placeholder="Event Type"
+              required
+              value={formData.eventType}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              htmlFor="ruleBookUrl"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Rule Book Url
+            </label>
+            <input
+              type="text"
+              id="ruleBookUrl"
+              name="ruleBookUrl"
+              className="mt-1 p-2 block w-full border rounded-md"
+              placeholder="Rule Book URL"
+              required
+              value={formData.ruleBookUrl}
               onChange={handleChange}
             />
           </div>
