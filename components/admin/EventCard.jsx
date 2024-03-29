@@ -32,20 +32,20 @@ const EventCard = (props) => {
 
   return (
     <div
-      className="event rounded-xl my-20 text-center m-10 drop-shadow-xl"
+      className="event md:my-20 w-60 h-80 flex flex-col items-center justify-center text-center m-10 rounded-3xl shadow-xl"
       style={{
         backgroundImage: "url(/assets/event_list_bg.png)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
     >
-      <img className="w-60 h-full p-2" src={props.image} alt="" />
+      <img className="w-60 h-60 p-2" src={props.image} alt="" />
       <h3 className="bg-gradient-to-r tracking-wide uppercase  from-amber-600 via-yellow-300 to-amber-600 font-extrabold block text-transparent bg-clip-text mb-2">
         {props.title}
       </h3>
       <p className="text-lg text-white">{props.coordinatorName1}</p>
       <p className="text-lg text-white">{props.coordinatorName2}</p>
-      <div className="flex justify-around px-4">
+      <div className="flex justify-between w-[80%] px-4">
         <Link
           href={`/admin/events/${props.id}`}
           className="mb-6 bg-[#f4d470] py-1 px-4 rounded-lg font-bold "
