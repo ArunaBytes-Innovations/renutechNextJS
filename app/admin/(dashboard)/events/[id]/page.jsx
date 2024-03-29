@@ -115,7 +115,6 @@ const EditEvents = ({ params }) => {
               name="eventType"
               className="mt-1 p-2 block w-full border rounded-md"
               placeholder="Event Type"
-              required
               value={formData.eventType}
               onChange={handleChange}
             />

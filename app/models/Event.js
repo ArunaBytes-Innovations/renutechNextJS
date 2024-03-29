@@ -11,7 +11,6 @@ const eventSchema = new mongoose.Schema({
     },
     eventType: {
         type: String,
-        required: true,
     },
 
     ruleBookUrl: {
