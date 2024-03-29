@@ -354,7 +354,7 @@ const Register = () => {
                 <select
                   id="year"
                   name="year"
-                  onChange={(e) => setYear(e.target.name)}
+                  onChange={(e) => setYear(e.target.value)}
                   value={year}
                   required
                   className=" block  w-full bg-white text-base border border-base-300 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-primary-500"
@@ -362,10 +362,10 @@ const Register = () => {
                   <option disabled selected hidden value="">
                     current Year
                   </option>
-                  <option value="first">1st Year</option>
-                  <option value="secound">2nd Year</option>
-                  <option value="third">3rd Year</option>
-                  <option value="fourth">4th Year</option>
+                  <option value="1st">1st Year</option>
+                  <option value="2nd">2nd Year</option>
+                  <option value="3rd">3rd Year</option>
+                  <option value="4th">4th Year</option>
                 </select>
               </div>
               <div className="flex justify-between pt-10">
