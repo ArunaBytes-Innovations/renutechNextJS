@@ -37,12 +37,13 @@ const Events = () => {
           backgroundImage: "url(/assets/event_list_bg.png)",
           backgroundSize: "contain",
           backgroundRepeat: "no-repeat",
+          fontFamily: "MedievalSharp, cursive",
         }}
       >
         {/* Event image */}
-        <img className="w-60 h-full shadow-2xl p-2" src={props.image} alt="" />
+        <img className="w-60 h-60 shadow-2xl p-2" src={props.image} alt="" />
         {/* Event title */}
-        <h3 className="bg-gradient-to-r font-serif capitalize from-amber-600 via-yellow-300 to-amber-600 font-extrabold block text-transparent bg-clip-text mb-2">
+        <h3 className="text-lg bg-gradient-to-r capitalize from-amber-600 via-yellow-300 to-amber-600 font-extrabold block text-transparent bg-clip-text mb-2">
           {props.title}
         </h3>
         {/* Button to show event details */}
@@ -59,7 +60,7 @@ const Events = () => {
 
   // Rendering component with event cards
   return (
-    <div className="relative bg-gradient-to-t from-[#a6def7] via-[#5abeea] to-[#000000]   no-scrollbar">
+    <div className="relative bg-gradient-to-t from-[#a6def7] via-[#5abeea] to-[#000000] overflow-hidden  no-scrollbar">
       <Navbar />
       <div className=" relative z-20 ">
         <img
@@ -76,7 +77,7 @@ const Events = () => {
           />
         </div>
       </div>
-      <div className="absolute w-screen inset-0 bg-black opacity-75"></div>
+      <div className="absolute w-screen inset-0 bg-black opacity-50"></div>
       <div className="bg-transparent pt-10  w-[100%] rounded-lg h-screen overflow-hidden overflow-y-scroll no-scrollbar">
         <div className="relative z-40  text-center">
           {/* Displaying event cards */}

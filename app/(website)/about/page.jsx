@@ -132,6 +132,39 @@ const About = () => {
           src="/assets/stars.png"
           alt="star"
         />
+        <div
+          className=" mt-20 relative z-50 flex flex-wrap justify-evenly item-center text-black "
+          style={{ fontFamily: "MedievalSharp, cursive" }}
+        >
+          <div className="bg-white bg-opacity-25 drop-shadow-2xl p-4 m-5 w-80 md:w-96 rounded-xl shadow-md flex flex-col items-center justify-center text-center">
+            <h3 className="text-4xl font-bold pb-4 lg:mb-10 text-white">
+              Patron
+            </h3>
+            <img
+              className="w-44 md:w-56 pb-4 lg:pb-8  "
+              src="assets/principal.png"
+              alt="img"
+            />
+            <p className="text-white text-2xl font-semibold">
+              Dr. Atma Ram Gupta
+            </p>
+            <p>Principal In Charge SPNREC, Araria</p>
+          </div>
+          <div className="bg-white bg-opacity-25 drop-shadow-2xl p-4 m-5 w-80 md:w-96 rounded-xl shadow-md flex flex-col items-center justify-center text-center">
+            <h3 className="text-4xl font-bold py-4 text-white">
+              Prof. Incharge <span className="text-3xl">RenuTech&apos;24</span>
+            </h3>
+            <img
+              className="w-44 md:w-56 pb-4"
+              src="assets/faculty.png"
+              alt="img"
+            />
+            <p className="text-white text-2xl font-semibold">
+              Prof. Gaurav Anand
+            </p>
+            <p>Assistant Professor Electrical Engg. Department</p>
+          </div>
+        </div>
         <div className="mid drop-shadow-2xl mt-20 flex justify-center items-center">
           <img src="/assets/hello_img.png" alt="hello" />
         </div>

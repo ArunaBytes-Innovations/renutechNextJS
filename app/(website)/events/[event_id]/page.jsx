@@ -31,38 +31,81 @@ const EventDetailsCard = ({ params }) => {
   };
 
   return (
-    <div className="bg-slate-700 min-h-screen flex flex-col justify-between">
-      <div className="event-details-card  flex justify-center items-center text-white">
-        <Navbar />
-        <div className=" flex flex-col p-20 md:flex-row lg:w-4/6 justify-evenly items-center border-black/30 m-2 mt-20 border-2 rounded-lg shadow-xl h-fit px-2">
-          <div className="flex flex-col items-center">
-            <img src={event.imageUrl} alt="" />
+    <div className="relative bg-gradient-to-t from-[#a6def7] via-[#5abeea] to-[#000000] overflow-hidden   no-scrollbar">
+      <Navbar />
+      <div className=" relative z-20 ">
+        <img
+          className="absolute top-0 left-0 min-h-screen animate-pulse  rotate-180"
+          src="/assets/stars.png"
+          alt="star"
+        />
+        <div className="">
+          <img
+            className="absolute top-0 right-0 h-48 md:h-72 animate-spin"
+            src="/assets/moon_full.png"
+            alt=""
+            style={{ animation: "spin 40s linear infinite" }}
+          />
+        </div>
+      </div>
+      <div className="absolute w-screen inset-0 bg-black opacity-75"></div>
+      <div className="relative z-50 pt-10 h-screen overflow-hidden overflow-y-scroll no-scrollbar">
+        <div className="event-details-card   flex justify-center items-center text-white">
+          <div className=" flex flex-col relative bg-black bg-opacity-40 py-10 md:py-4 md:flex-row lg:w-4/6 justify-evenly mb-10 items-center border-black/30 m-2 mt-20 border-2 rounded-xl shadow-xl h-auto px-2 cursor-default">
             <Link
-              href="/events/register"
-              className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+              href="./"
+              className=" absolute top-2 right-4 py-2 px-4 bg-white hover:bg-slate-200 text-black rounded-xl font-bold"
             >
-              Register Now
+              x
             </Link>
-          </div>
-          <div className="w-4/6 pt-5">
-            <h1 className="text-3xl font-bold capitalize">{event.name}</h1>
-            <p className="pt-4">{event.description}</p>
-
-            <h1 className="text-xl font-semibold mt-2">Coordinators: </h1>
-            <div className="flex justify-evenly uppercase">
-              <div>
-                <h2 className="text-lg font-bold">{event.coordinatorName1}</h2>
-                <p>{event.coordinatorMobile1}</p>
-              </div>
-              <div>
-                <h2 className="text-lg font-bold">{event.coordinatorName2}</h2>
-                <p>{event.coordinatorMobile2}</p>
+            <div className="flex flex-col items-center">
+              <img src={event.imageUrl} alt="" />
+              <Link
+                href="/events/register"
+                className="bg-blue-500 text-white px-4 mt-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+              >
+                Register Now
+              </Link>
+            </div>
+            <div className="md:w-4/6 pt-5 px-5 md:pr-5 flex flex-col justify-center md:items-start items-center">
+              <h1 className="text-3xl font-bold capitalize">{event.name}</h1>
+              <p className="pt-4 mb-6 font-medium cursor-default text-center md:text-left">
+                {event.description}
+              </p>
+              <span className="font-medium">
+                For more details!{" "}
+                <Link
+                  href="#"
+                  target="_blank"
+                  className="p-2 my-4 bg-rose-500 hover:bg-rose-600 rounded-lg text-white"
+                >
+                  Click here
+                </Link>
+              </span>
+              <h1 className="text-xl font-semibold mt-4">Coordinators: </h1>
+              <div className="flex justify-between text-center uppercase w-full py-2 md:pr-20">
+                <div>
+                  <h2 className="text-lg font-bold">
+                    {event.coordinatorName1}
+                  </h2>
+                  <Link href={`tel:${event.coordinatorMobile1}`}>
+                    {event.coordinatorMobile1}
+                  </Link>
+                </div>
+                <div className="">
+                  <h2 className="text-lg font-bold">
+                    {event.coordinatorName2}
+                  </h2>
+                  <Link href={`tel:${event.coordinatorMobile2}`}>
+                    {event.coordinatorMobile2}
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 };
