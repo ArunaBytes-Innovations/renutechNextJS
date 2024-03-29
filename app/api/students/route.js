@@ -51,7 +51,7 @@ export async function POST(req) {
     const oldStudent = await Student.findOne({ email: newStudent.email });
 
     if (oldStudent) {
-        return NextResponse.json({ message: 'Email already registered!! Try different Email.' });
+        return NextResponse.error({ message: 'Email already registered!! Try different Email.' });
     }
 
     const student = new Student(newStudent);
