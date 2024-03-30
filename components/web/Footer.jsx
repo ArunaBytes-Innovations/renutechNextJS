@@ -40,19 +40,19 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex flex-wrap justify-center items-center md:w-full md:px-40 font-semibold mt-6">
-            <Link href="/" className="m-2 md:border-r-2 md:px-16">
+            <Link href="/" className="m-2 lg:border-r-2 lg:px-16">
               Home
             </Link>
-            <Link href="/events" className="m-2 md:border-r-2 md:px-16">
+            <Link href="/events" className="m-2 lg::border-r-2 lg:px-16">
               Events
             </Link>
-            <Link href="/about" className="m-2 md:border-r-2 md:px-16">
+            <Link href="/about" className="m-2 lg:border-r-2 lg:px-16">
               About
             </Link>{" "}
-            <Link href="/contact" className="m-2 md:border-r-2 md:px-16">
+            <Link href="/contact" className="m-2 lg:border-r-2 lg:px-16">
               Contact
             </Link>
-            <Link href="/about" className=" md:pl-16">
+            <Link href="/about" className=" lg:pl-16">
               Developers
             </Link>
           </div>

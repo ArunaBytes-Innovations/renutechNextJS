@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className="home-container bg-gradient-to-t from-[#9fd4eb] from-10% via-[#5abeea] via-30% to-[#000000] to-90% w-full min-h-screen overflow-hidden">
       <Navbar />
-      <div className="relative -mt-10">
+      <div className="relative -mt-10 overflow-hidden">
         <div className="hero md:flex justify-between">
           <div className="py-10 md:py-24 md:px-10 w-full md:w-fit text-white mt-20 text-center md:text-left">
             <img
@@ -82,7 +82,7 @@ const Home = () => {
             </div>
           </Link>
           <Link href="/events">
-            <div className="flex justify-evenly bg-white text-black mt-4 md:mt-0 p-2 rounded-lg drop-shadow-xl ">
+            <div className="flex justify-evenly bg-white text-black mt-4 lg:mt-0 p-2 rounded-lg drop-shadow-xl ">
               <img
                 src="/assets/cultural_img.png"
                 className="w-20 h-20 pr-2 rounded-full"

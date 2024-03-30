@@ -24,7 +24,7 @@ const NavLinkGroup = () => {
   );
 };
 
-const MenuLinks = ["contact", "brochure"];
+const MenuLinks = ["contact", "brochure", "co-ordinators"];
 const MenuLinkGroup = () => {
   return (
     <div id="nav-links" className="text-white">
@@ -36,7 +36,17 @@ const MenuLinkGroup = () => {
               {link === "brochure" ? (
                 <Link
                   className="capitalize list-disc leading-10 hover:font-bold"
-                  href="https://drive.google.com/uc?export=download&id=1C6TpAXViHBOdFeSPtfdXSfwr9-7XvpSW" // Provide the actual path to your brochure PDF file here
+                  href="https://drive.google.com/uc?export=download&id=1C6TpAXViHBOdFeSPtfdXSfwr9-7XvpSW" // Link to the file to download
+                  download // Add the 'download' attribute to force download
+                  target="_blank" // Open the link in a new tab
+                >
+                  {link}
+                </Link>
+              ) : link === "co-ordinators" ? (
+                <Link
+                  className="capitalize list-disc leading-10 hover:font-bold"
+                  href="https://drive.google.com/uc?export=download&id=1_i98FfZoCQt_NK8buWWrR2KFZliZZx9L
+                  " // Link to coordinator file to download
                   download // Add the 'download' attribute to force download
                   target="_blank" // Open the link in a new tab
                 >
