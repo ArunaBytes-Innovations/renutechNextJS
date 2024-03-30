@@ -86,7 +86,10 @@ const SocialLinks = ({ insta, twitter, linkedin, github }) => {
 
 const About = () => {
   return (
-    <div className="home-container bg-gradient-to-t from-[#a6def7] via-[#5abeea] to-[#000000] w-full min-h-screen overflow-hidden">
+    <div
+      className="home-container bg-gradient-to-t from-[#a6def7] via-[#5abeea] to-[#000000] w-full min-h-screen overflow-hidden"
+      style={{ fontFamily: "Rubik, sans-serif " }}
+    >
       <Navbar />
       <div className="relative pt-10 md:pt-20">
         <div className="first relative z-20 flex flex-col-reverse md:flex-row items-center text-center md:text-left justify-evenly">
@@ -101,18 +104,19 @@ const About = () => {
               Welcome to RenuTech
             </b>{" "}
             <br /> the ultimate fusion of technology and innovation, brought to
-            you by <b className="text-[#fcf1c5]">SPNREC Araria!</b> RenuTech is
-            not just a tech fest; it&apos;s an extravaganza that blends
-            cutting-edge technology with creative prowess and intellectual
-            prowess.{" "}
+            you by{" "}
+            <span className="text-[#fcf1c5] font-semibolt text-lg md:text-xl">
+              SPNREC Araria!
+            </span>{" "}
+            RenuTech is not just a tech fest, it&apos;s an extravaganza that
+            blends cutting-edge technology with creative prowess and
+            intellectual prowess.{" "}
             <span className="hidden md:block">
               With a diverse array of events ranging from coding competitions
-              and robotics challenges to debates, quizzes, and workshops,
-              RenuTech offers something for everyone, whether you&apos;re a tech
-              enthusiast or not. Our aim is to create an inclusive platform
-              where students from various disciplines can come together to
-              showcase their talents, exchange ideas, and push the boundaries of
-              innovation.
+              and robotics challenges. Our aim is to create an inclusive
+              platform where students from various disciplines can come together
+              to showcase their talents, exchange ideas, and push the boundaries
+              of innovation.
             </span>{" "}
             Join us as we embark on a journey to redefine the future through the
             convergence of technology and imagination at RenuTech, where
@@ -129,47 +133,43 @@ const About = () => {
           src="/assets/stars.png"
           alt="star"
         />
-        <div
-          className=" mt-20 relative z-50 flex flex-wrap justify-evenly item-center text-black "
-          style={{ fontFamily: "MedievalSharp, cursive" }}
-        >
-          <div className="bg-white bg-opacity-25 drop-shadow-2xl p-4 m-5 w-80 md:w-96 rounded-xl shadow-md flex flex-col items-center justify-center text-center">
-            <h3 className="text-4xl font-bold pb-4 lg:mb-10 text-white">
-              Patron
-            </h3>
+        <div className=" mt-24 relative z-50 flex flex-wrap justify-evenly item-center text-black ">
+          <div className="bg-black bg-opacity-25 drop-shadow-2xl p-4 m-5 w-64 rounded-xl shadow-md flex flex-col items-center justify-center text-center">
+            <h3 className="text-2xl font-bold pb-4 text-white">Patron</h3>
             <img
-              className="w-44 md:w-56 pb-4 lg:pb-8  "
+              className="w-28 border-4 rounded-full border-white/75 border-double "
               src="assets/principal.png"
               alt="img"
             />
-            <p className="text-white text-2xl font-semibold">
+            <p className="text-white pt-4 lg:pt-8 text-xl font-semibold">
               Dr. Atma Ram Gupta
             </p>
-            <p>Principal In Charge SPNREC, Araria</p>
+            <p className=" text-sm md:text-base">
+              Principal In Charge <br /> SPNREC, Araria
+            </p>
           </div>
-          <div className="bg-white bg-opacity-25 drop-shadow-2xl p-4 m-5 w-80 md:w-96 rounded-xl shadow-md flex flex-col items-center justify-center text-center">
-            <h3 className="text-4xl font-bold py-4 text-white">
-              Prof. Incharge <span className="text-3xl">RenuTech&apos;24</span>
+          <div className="bg-black bg-opacity-25 drop-shadow-2xl p-4 m-5 w-64 rounded-xl shadow-md flex flex-col items-center justify-center text-center">
+            <h3 className="text-2xl font-bold py-4 text-white">
+              Prof. Incharge <span className="text-xl">RenuTech&apos;24</span>
             </h3>
             <img
-              className="w-44 md:w-56 pb-4"
+              className="w-28 border-4 rounded-full border-white/75 border-double"
               src="assets/faculty.png"
               alt="img"
             />
-            <p className="text-white text-2xl font-semibold">
+            <p className="text-white pt-4 text-xl font-semibold">
               Prof. Gaurav Anand
             </p>
-            <p>Assistant Professor Electrical Engg. Department</p>
+            <p className="text-sm md:text-base">
+              Assistant Professor Electrical Engg. Department
+            </p>
           </div>
         </div>
         <div className="mid drop-shadow-2xl mt-20 flex justify-center items-center">
           <img src="/assets/hello_img.png" alt="hello" />
         </div>
 
-        <div
-          className="mt-16 mb-8"
-          style={{ fontFamily: "MedievalSharp, cursive" }}
-        >
+        <div className="mt-16 mb-8">
           <div className="flex justify-evenly flex-wrap">
             {DevLists.map((dev, index) => (
               <div
