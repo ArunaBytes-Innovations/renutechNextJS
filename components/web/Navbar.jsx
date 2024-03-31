@@ -79,8 +79,11 @@ const Navbar = () => {
 
   return (
     <div className="fixed top-0 z-50 w-full">
-      <div className="h-6 bg-slate-950 hover:text-white transtion duration-300 flex items-center tracking-wider justify-center text-center font-mono">
-        <Link href="https://www.linkedin.com/company/arunabytes-innovations">
+      <div className="h-6 bg-slate-950 text-sm hover:text-white transtion duration-300  text-center font-mono">
+        <Link
+          href="https://www.linkedin.com/company/arunabytes-innovations"
+          className="flex items-center tracking-wider justify-center"
+        >
           Made with
           <span className="px-2">
             <FaRegHeart />
