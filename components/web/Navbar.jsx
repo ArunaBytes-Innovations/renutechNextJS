@@ -4,6 +4,7 @@ import Link from "next/link";
 import "./Style/Navbar.css";
 
 import { RiMenuLine, RiCloseLine } from "react-icons/ri";
+import { FaRegHeart } from "react-icons/fa";
 
 const NavLinks = ["home", "events", "about"];
 const NavLinkGroup = () => {
@@ -77,40 +78,49 @@ const Navbar = () => {
   };
 
   return (
-    <div
-      className="nav-cont flex justify-between items-center px-10 md:px-20 bg-blur backdrop-blur md:h-20 fixed top-0  w-screen"
-      style={{
-        zIndex: 1000,
-      }}
-    >
-      <Link href="/">
-        <img className="w-16" src={"/assets/renutech_logo.svg"} alt="logo" />
-      </Link>
-      <div className="hidden md:block">
-        <NavLinkGroup />
+    <div className="fixed top-0  w-full">
+      <div className="h-6 bg-slate-900/50 flex items-center tracking-wider justify-center text-center font-mono">
+        Made with
+        <span className="px-2">
+          <FaRegHeart />
+        </span>
+        by ArunaBytes
       </div>
+      <div
+        className="nav-cont flex justify-between items-center px-10 md:px-20 bg-blur backdrop-blur md:h-16"
+        style={{
+          zIndex: 1000,
+        }}
+      >
+        <Link href="/">
+          <img className="w-16" src={"/assets/renutech_logo.svg"} alt="logo" />
+        </Link>
+        <div className="hidden md:block">
+          <NavLinkGroup />
+        </div>
 
-      <div className="">
-        <input
-          type="checkbox"
-          id="check"
-          className="hidden"
-          onClick={handleToggle}
-        />
-        <label
-          htmlFor="check"
-          className=" float-right p-2 bg-slate-200 rounded-lg"
-        >
-          {toggle ? <RiCloseLine /> : <RiMenuLine />}
-        </label>
-        <ul className="menu-list hidden w-64 pt-6 float-right h-screen bg-black bg-opacity-50 fixed top-20 -mt-5 md:-mt-2.5 right-0 pl-16 z-20">
-          <li className=" md:hidden text-start list-disc">
-            <NavLinkGroup />
-          </li>
-          <li className=" text-start">
-            <MenuLinkGroup />
-          </li>
-        </ul>
+        <div className="">
+          <input
+            type="checkbox"
+            id="check"
+            className="hidden"
+            onClick={handleToggle}
+          />
+          <label
+            htmlFor="check"
+            className=" float-right p-2 bg-slate-200 rounded-lg"
+          >
+            {toggle ? <RiCloseLine /> : <RiMenuLine />}
+          </label>
+          <ul className="menu-list hidden w-64 pt-6 float-right h-screen bg-black bg-opacity-50 fixed top-20 -mt-5 md:-mt-2.5 right-0 pl-16 z-20">
+            <li className=" md:hidden text-start list-disc">
+              <NavLinkGroup />
+            </li>
+            <li className=" text-start">
+              <MenuLinkGroup />
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );

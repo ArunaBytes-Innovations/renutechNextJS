@@ -8,6 +8,28 @@ import { FaXTwitter, FaGithub } from "react-icons/fa6";
 
 const DevLists = [
   {
+    image: "/assets/bharat.png",
+    role: "Full Stack Developer",
+    name: "Bharat Ranjan",
+    number: "9162601061",
+    email: "ranjanbharat54@gmail.com",
+    insta: "https://www.instagram.com/bhaarat.ranjan/",
+    twitter: "https://twitter.com/codewithbharat",
+    linkedin: "https://www.linkedin.com/in/codewithbharat/",
+    github: "https://github.com/codewithbharat",
+  },
+  {
+    image: "/assets/aarju_img.png",
+    role: "Frontend Developer",
+    name: "Md Aarju Khan",
+    number: "8051648516",
+    email: "aarjukhan37999@gmail.com",
+    insta: "https://www.instagram.com/aarju_0004/",
+    twitter: "#",
+    linkedin: "https://www.linkedin.com/in/md-aarju-khan-23a253265/",
+    github: "https://github.com/Aarju004",
+  },
+  {
     image: "/assets/priyanshu.png",
     role: "UI/UX Designer",
     name: "Priyanshu Anand",
@@ -32,28 +54,6 @@ const DevLists = [
     linkedin:
       "https://www.linkedin.com/in/divya-prakash-2435a9227?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     github: "#",
-  },
-  {
-    image: "/assets/aarju_img.png",
-    role: "Frontend Developer",
-    name: "Md Aarju Khan",
-    number: "8051648516",
-    email: "aarjukhan37999@gmail.com",
-    insta: "https://www.instagram.com/aarju_0004/",
-    twitter: "#",
-    linkedin: "https://www.linkedin.com/in/md-aarju-khan-23a253265/",
-    github: "https://github.com/Aarju004",
-  },
-  {
-    image: "/assets/bharat.png",
-    role: "Full Stack Developer",
-    name: "Bharat Ranjan",
-    number: "9162601061",
-    email: "ranjanbharat54@gmail.com",
-    insta: "https://www.instagram.com/bhaarat.ranjan/",
-    twitter: "https://twitter.com/codewithbharat",
-    linkedin: "https://www.linkedin.com/in/codewithbharat/",
-    github: "https://github.com/codewithbharat",
   },
 ];
 
