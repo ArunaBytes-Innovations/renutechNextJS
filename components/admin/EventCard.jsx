@@ -3,7 +3,6 @@ import Link from "next/link";
 
 const EventCard = (props) => {
   const token = localStorage.getItem("token");
-  console.log(token);
   const handleDelete = async () => {
     try {
       const response = await fetch(`/api/events/${props.id}`, {
