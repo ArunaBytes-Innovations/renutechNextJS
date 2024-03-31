@@ -91,7 +91,7 @@ const About = () => {
       style={{ fontFamily: "Rubik, sans-serif " }}
     >
       <Navbar />
-      <div className="relative pt-10 md:pt-20">
+      <div className="relative pt-20 md:pt-24">
         <div className="first relative z-20 flex flex-col-reverse md:flex-row items-center text-center md:text-left justify-evenly">
           <img
             className="hidden md:block absolute drop-shadow-xl top-40 md:top-0 md:right-20"

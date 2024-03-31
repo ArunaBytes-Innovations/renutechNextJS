@@ -55,16 +55,16 @@ const Contact = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-t from-[#a6def7] via-[#5abeea] to-[#000000] overflow-hidden">
+    <div className="relative min-h-screen pt-10 flex items-center justify-center bg-gradient-to-t from-[#a6def7] via-[#5abeea] to-[#000000] overflow-hidden">
       <Navbar />
       <img
-        className="absolute top-0 left-0 animate-pulse rotate-180"
+        className="absolute top-10 left-0 animate-pulse rotate-180"
         src="/assets/stars.png"
         alt="star"
       />
       <div className="">
         <img
-          className=" absolute top-0 right-0 md:top-20 md:right-20 w-54 h-48 animate-spin"
+          className=" absolute top-0 pt-20 right-0 md:top-20 md:right-20 w-54 h-48 animate-spin"
           src="/assets/moon_full.png"
           alt=""
           style={{ animation: "spin 40s linear infinite" }}
