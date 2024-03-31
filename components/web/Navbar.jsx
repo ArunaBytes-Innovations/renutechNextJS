@@ -78,20 +78,15 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed top-0  w-full">
-      <div className="h-6 bg-slate-900/50 flex items-center tracking-wider justify-center text-center font-mono">
+    <div className="fixed top-0 z-50 w-full">
+      <div className="h-6 bg-slate-900/70 flex items-center tracking-wider justify-center text-center font-mono">
         Made with
         <span className="px-2">
           <FaRegHeart />
         </span>
         by ArunaBytes
       </div>
-      <div
-        className="nav-cont flex justify-between items-center px-10 md:px-20 bg-blur backdrop-blur md:h-16"
-        style={{
-          zIndex: 1000,
-        }}
-      >
+      <div className="nav-cont flex justify-between items-center px-10 md:px-20 bg-blur backdrop-blur md:h-16">
         <Link href="/">
           <img className="w-16" src={"/assets/renutech_logo.svg"} alt="logo" />
         </Link>
