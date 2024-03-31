@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Navbar from "@/components/web/Navbar";
+import Link from "next/link";
 
 const Contact = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -10,6 +11,25 @@ const Contact = () => {
     email: "",
     message: "",
   });
+
+  const coordinators = [
+    {
+      name: "Shekhar Mishra",
+      phone: "7808697623",
+    },
+    {
+      name: "Ashutosh Kumar",
+      phone: "6201536400",
+    },
+    {
+      name: "Satyam Kumar",
+      phone: "8541960230",
+    },
+    {
+      name: "Anjali Kumari",
+      phone: "9334569617",
+    },
+  ];
 
   // Function to handle form submission
   const handleSubmit = async (event) => {
@@ -55,14 +75,14 @@ const Contact = () => {
   };
 
   return (
-    <div className="relative min-h-screen pt-10 flex items-center justify-center bg-gradient-to-t from-[#a6def7] via-[#5abeea] to-[#000000] overflow-hidden">
+    <div className="relative min-h-screen pt-10 pb-10 flex flex-col items-center justify-center bg-gradient-to-t from-[#a6def7] via-[#5abeea] to-[#000000] overflow-hidden">
       <Navbar />
       <img
         className="absolute top-10 left-0 animate-pulse rotate-180"
         src="/assets/stars.png"
         alt="star"
       />
-      <div className="">
+      <div className="mt-20">
         <img
           className=" absolute top-0 pt-20 right-0 md:top-20 md:right-20 w-54 h-48 animate-spin"
           src="/assets/moon_full.png"
@@ -74,7 +94,7 @@ const Contact = () => {
         className="max-w-md relative z-40 w-[90%] md:full bg-white bg-opacity-25 shadow-md rounded-xl p-8 overflow-hidden"
         style={{ fontFamily: "Lato, sans-serif" }}
       >
-        <h2 className="text-2xl font-bold mb-4 text-center cursor-default text-white underline underline-offset-8  decoration-wavy">
+        <h2 className="text-2xl font-bold mb-4 text-center cursor-default text-[#fcf1c5] underline underline-offset-8  decoration-wavy">
           Contact Us
         </h2>
         <form onSubmit={handleSubmit}>
@@ -83,7 +103,7 @@ const Contact = () => {
               type="text"
               id="fullName"
               name="fullName"
-              className="peer my-4 w-64 md:w-80 bg-inherit h-8 focus:outline-none capitalize placeholder-transparent border-b-2 "
+              className="peer my-4 w-64 md:w-80 bg-inherit h-8 focus:outline-none capitalize placeholder-transparent border-b-2"
               placeholder="fullName"
               required
               value={formData.fullName}
@@ -106,7 +126,7 @@ const Contact = () => {
             <input
               type="text"
               id="college"
-              className="peer my-4 w-64 md:w-80 bg-inherit h-8 focus:outline-none capitalize placeholder-transparent border-b-2 "
+              className="peer my-4 w-64 md:w-80 bg-inherit h-8 focus:outline-none capitalize placeholder-transparent border-b-2"
               placeholder="college name"
               required
               name="college"
@@ -130,7 +150,7 @@ const Contact = () => {
             <input
               type="email"
               id="user"
-              className="peer my-4 bg-inherit w-64 md:w-80 h-8 focus:outline-none placeholder-transparent border-b-2 "
+              className="peer my-4 bg-inherit w-64 md:w-80 h-8 focus:outline-none placeholder-transparent border-b-2"
               placeholder="Email"
               required
               name="email"
@@ -193,6 +213,30 @@ const Contact = () => {
           </div>
         </div>
       )}
+      {/* seprater */}
+      <div className="my-2 mx-6 w-[60%]  mt-10 grid grid-cols-3 items-center">
+        <hr className="border-white" />
+        <p className="text-center text-white text-xl font-semibold  ">or</p>
+        <hr className=" border-white " />
+      </div>
+      <div className="flex flex-col items-center justify-center">
+        <h2 className="text-2xl font-bold mb-4 cursor-default text-[#fcf1c5] underline underline-offset-8  decoration-wavy">
+          Contact Our Event Coordinators
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 px-2 pt-8">
+          {coordinators.map((coordinator, index) => (
+            <div
+              key={index}
+              className="bg-black bg-opacity-25 p-4 rounded-lg shadow-md text-center"
+            >
+              <h3 className="text-lg font-semibold text-white">
+                {coordinator.name}
+              </h3>
+              <p className="text-sm text-white">{coordinator.phone}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
