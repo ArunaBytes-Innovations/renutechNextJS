@@ -78,7 +78,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed top-0 z-50 w-full">
+    <div className="fixed top-0 w-full" style={{ zIndex: 1000 }}>
       <div className="h-6 bg-slate-950 text-sm hover:text-white transtion duration-300  text-center font-mono">
         <Link
           href="https://www.linkedin.com/company/arunabytes-innovations"
@@ -112,7 +112,7 @@ const Navbar = () => {
           >
             {toggle ? <RiCloseLine /> : <RiMenuLine />}
           </label>
-          <ul className="menu-list hidden w-64 pt-6 float-right h-screen bg-black bg-opacity-50 fixed top-20 -mt-5 md:-mt-2.5 right-0 pl-16 z-20">
+          <ul className="menu-list hidden w-64 pt-6 float-right h-screen bg-black bg-opacity-90 fixed top-20 -mt-5 md:-mt-2.5 right-0 pl-16 z-20">
             <li className=" md:hidden text-start list-disc">
               <NavLinkGroup />
             </li>
