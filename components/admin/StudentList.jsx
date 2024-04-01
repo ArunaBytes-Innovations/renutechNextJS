@@ -41,6 +41,8 @@ const StudentList = () => {
     fetchStudents();
   }, []);
 
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+
   const handleDeleteStudent = (id) => async () => {
     try {
       const token = localStorage.getItem("token");
@@ -57,10 +59,32 @@ const StudentList = () => {
 
       const updatedStudents = students.filter((student) => student._id !== id);
       setStudents(updatedStudents);
+      setShowDeleteConfirmation(false);
     } catch (error) {
       console.error("Error deleting student:", error);
       alert(error.message);
     }
+  };
+
+  const DeleteConfimation = ({ id }) => {
+    return (
+      <div className="fixed top-0 right-0 left-0 bottom-0 bg-black/30 flex justify-center items-center">
+        <div className="bg-white p-6 rounded-xl">
+          <p className="py-2 text-xl">Are you sure?? Delete ho jaayega....</p>
+          <div className="flex justify-around">
+            <button className="btn btn-error" onClick={handleDeleteStudent(id)}>
+              Yes
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={() => setShowDeleteConfirmation(false)}
+            >
+              No
+            </button>
+          </div>
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -158,17 +182,21 @@ const StudentList = () => {
                     <div className="flex">
                       <Link
                         href={`/admin/participants/${student._id}`}
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 m-1 rounded-xl"
+                        className="text-blue-500 hover:bg-blue-500 hover:text-white font-extrabold py-1 px-2 m-1 rounded-xl"
                       >
                         <GoPencil size={25} />
                       </Link>
                       <button
-                        onClick={handleDeleteStudent(student._id)}
-                        className="bg-red-500 hover:bg-blue-700 text-white font-bold py-1 px-2 m-1 rounded-xl"
+                        onClick={() => setShowDeleteConfirmation(true)}
+                        className="text-red-500 hover:bg-red-500 hover:text-white font-extrabold py-1 px-2 m-1 rounded-xl"
                       >
                         <MdDeleteOutline size={25} />
                       </button>
                     </div>
+
+                    {showDeleteConfirmation && (
+                      <DeleteConfimation id={student._id} />
+                    )}
                   </td>
                 </tr>
               ))}
