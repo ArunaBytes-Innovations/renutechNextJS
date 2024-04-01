@@ -27,7 +27,7 @@ const Contact = () => {
     },
     {
       name: "Anjali Kumari",
-      phone: "",
+      phone: "9334569617",
     },
   ];
 
