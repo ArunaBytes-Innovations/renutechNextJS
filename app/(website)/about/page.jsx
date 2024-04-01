@@ -103,7 +103,7 @@ const About = () => {
             <b className="text-[#fcf1c5] text-xl md:text-2xl">
               Welcome to RenuTech
             </b>{" "}
-            <br /> the ultimate fusion of technology and innovation, brought to
+            <br /> The ultimate fusion of technology and innovation, brought to
             you by{" "}
             <span className="text-[#fcf1c5] font-semibolt text-lg md:text-xl">
               SPNREC Araria!

@@ -37,7 +37,8 @@ const MenuLinkGroup = () => {
               {link === "brochure" ? (
                 <Link
                   className="capitalize list-disc leading-10 hover:font-bold"
-                  href="https://drive.google.com/uc?export=download&id=1C6TpAXViHBOdFeSPtfdXSfwr9-7XvpSW" // Link to the file to download
+                  href="https://drive.google.com/uc?export=download&id=1Y6Yb5dqZYIDK_URoGGvzQzWr5hHRQYgS
+                  " // Link to the file to download
                   download // Add the 'download' attribute to force download
                   target="_blank" // Open the link in a new tab
                 >

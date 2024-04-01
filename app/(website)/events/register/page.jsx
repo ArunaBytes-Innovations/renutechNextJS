@@ -153,12 +153,12 @@ const Register = () => {
 
   return (
     <div
-      className="flex justify-center items-center h-dvh bg-gradient-to-b from-[#197fbd] from-10% via-[#5abeea] via-30% to-[#ffffff]"
+      className="flex justify-center items-center bg-gradient-to-b from-[#197fbd] from-10% via-[#5abeea] via-30% to-[#ffffff]"
       style={{
         fontFamily: "Shantell Sans, cursive",
       }}
     >
-      <div className="bg-base-200 bg-opacity-25 rounded-lg p-10 md:w-full lg:w-1/2 shadow-lg">
+      <div className="bg-base-200 bg-opacity-25 rounded-lg p-10 my-10 md:w-full lg:w-1/2 shadow-lg">
         {/* heading  */}
         <h1 className=" text-4xl py-2 font-semibold bg-gradient-to-br from-purple-600 via-pink-600 to-blue-600 inline-block text-transparent bg-clip-text">
           Event Registration

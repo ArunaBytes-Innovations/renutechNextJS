@@ -29,6 +29,7 @@ const Home = () => {
               </button>
             </Link>
           </div>
+
           <img
             className="absolute top-24 md:top-36 min-h-full animate-pulse w-screen rotate-180"
             src="/assets/stars.png"
@@ -60,8 +61,20 @@ const Home = () => {
         </p>
       </div>
 
+      <div className="flex flex-col justify-center items-center text-white">
+        <h3 className="text-center text-[#fcf1c5] text-3xl md:text-4xl font-bold underline underline-offset-8  decoration-wavy pb-8">
+          Winning Prize
+        </h3>
+
+        <img className="w-64" src="/assets/winning.png" alt="img" />
+        <p className=" text-xl md:text-2xl font-bold ">
+          !! Cash Prize upto <span className="text-red-500">100k+ </span>
+          !!
+        </p>
+      </div>
+
       <div className="events bg-inherit text-white py-10 overflow-hidden cursor-default">
-        <h2 className="text-center text-[#fcf1c5] text-2xl font-bold underline underline-offset-8  decoration-wavy">
+        <h2 className="text-center text-[#fcf1c5] text-3xl font-bold underline underline-offset-8  decoration-wavy">
           Events
         </h2>
         <div className="flex flex-wrap justify-evenly mt-5 md:mt-12 px-6 md:px-0">
