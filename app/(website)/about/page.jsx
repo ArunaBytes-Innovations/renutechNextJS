@@ -186,7 +186,7 @@ const About = () => {
                 />
 
                 <p className="font-semibold text-md">{dev.name}</p>
-                <Link href={`tel:${dev.number}`}>{dev.number}</Link>
+                {/* <Link href={`tel:${dev.number}`}>{dev.number}</Link> */}
                 <Link href={`mailto:${dev.email}`}>{dev.email}</Link>
                 <SocialLinks
                   insta={dev.insta}
