@@ -16,7 +16,21 @@ const Home = () => {
               className="relative z-10 px-10 md:w-auto md:max-w-none"
               alt=""
             />
-            <p className="relative z-50 text-xl text-center font-bold md:text-center md:text-2xl md:px-10 pt-6 text-amber-100 capitalize ">
+            <div className="flex flex-col justify-center items-center ">
+              <p className="relative z-50 w-5/6 text-xl text-center  md:text-center md:text-2xl md:px-10 pt-6 text-red-500 font-semibold drop-shadow-2xl capitalize ">
+                This is to inform you all that due to some unavoidable
+                Circumstances RENUTECH-2024 has been postponed till further
+                notice. The new date will be notified soon.
+              </p>
+
+              <Link href="https://drive.google.com/file/d/1FSxzIFbTyykZc0i-ofY21fb3TIDoeQ2I/view?usp=sharing">
+                <button className="bg-amber-100 text-sm md:text-lg font-semibold text-black md:ml-10 px-4 py-2 mt-5 rounded-lg cursor-pointer relative z-40">
+                  Download Notice
+                </button>
+              </Link>
+            </div>
+
+            {/* <p className="relative z-50 text-xl text-center font-bold md:text-center md:text-2xl md:px-10 pt-6 text-amber-100 capitalize ">
               08-10 April 2024
             </p>
             <p className="md:text-xl text-center font-bold md:text-left md:px-10 pt-10 text-amber-100 capitalize ">
@@ -27,7 +41,7 @@ const Home = () => {
               <button className="bg-amber-100 text-sm md:text-lg font-semibold text-black md:ml-10 px-4 py-2 mt-5 rounded-lg cursor-pointer relative z-40">
                 Get Started
               </button>
-            </Link>
+            </Link> */}
           </div>
 
           <img

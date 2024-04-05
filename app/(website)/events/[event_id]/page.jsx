@@ -61,10 +61,11 @@ const EventDetailsCard = ({ params }) => {
             <div className="flex flex-col items-center">
               <img src={event.imageUrl} alt="" />
               <Link
-                href="/events/register"
-                className="bg-blue-500 text-white px-4 mt-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+                // href="/events/register"
+                href="#"
+                className="bg-gray-500 text-white  px-4 mt-4 py-2 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
               >
-                Register Now
+                Registertion Closed
               </Link>
             </div>
             <div className="md:w-4/6 pt-5 px-5 md:pr-5 flex flex-col justify-center md:items-start items-center">
