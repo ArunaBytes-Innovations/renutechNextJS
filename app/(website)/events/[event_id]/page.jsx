@@ -65,7 +65,7 @@ const EventDetailsCard = ({ params }) => {
                 href="#"
                 className="bg-gray-500 text-white  px-4 mt-4 py-2 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
               >
-                Registertion Closed
+                Registration Closed
               </Link>
             </div>
             <div className="md:w-4/6 pt-5 px-5 md:pr-5 flex flex-col justify-center md:items-start items-center">
